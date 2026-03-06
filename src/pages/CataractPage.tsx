@@ -44,7 +44,7 @@ export default function CataractPage() {
 
             <div className="space-y-6">
               <div className="rounded-3xl overflow-hidden h-56">
-                <img src="https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/Cataracte-clinic-eye-cerisaie.png" alt="Cataracte" className="w-full h-full object-cover" />
+                <img src="/images/cataract.png" alt="Cataracte" className="w-full h-full object-cover" />
               </div>
               <div className="bg-gradient-to-br from-teal-900 to-slate-900 rounded-3xl p-10 text-white relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)`, backgroundSize: '24px 24px' }} />

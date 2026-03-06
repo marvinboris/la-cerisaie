@@ -452,7 +452,7 @@ const fr = {
       {
         id: 1, date: '7 mars 2022', category: 'Prévention',
         title: 'Votre vue est précieuse',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/Bienvenue_Cerisaie.png',
+        image: '/images/news-welcome.png',
         excerpt: "Vous avez tellement de belles choses à voir et à découvrir. La Cerisaie Eye Clinic s'engage à prendre soin de vos yeux.",
         content: `Vous avez tellement de belles choses à voir et à découvrir dans ce monde. La vue est l'un des sens les plus précieux, celui qui nous permet d'apprécier la beauté qui nous entoure, de lire, de travailler, de conduire, de regarder ceux que nous aimons.\n\nC'est pourquoi chez La Cerisaie Eye Clinic, nous mettons tout en œuvre pour prendre soin de votre santé visuelle avec le plus grand sérieux et la plus grande bienveillance.\n\nNe laissez pas une baisse de vision, des douleurs oculaires, des éblouissements ou tout autre symptôme sans consultation. Une prise en charge précoce est souvent la clé d'un meilleur résultat.\n\n**Notre équipe est à votre disposition.** N'attendez pas pour prendre rendez-vous avec l'un de nos ophtalmologistes. Ensemble, prenons soin de votre vision.`,
         color: 'from-blue-400 to-blue-600', bg: 'bg-blue-50', tagColor: 'text-blue-700',
@@ -460,7 +460,7 @@ const fr = {
       {
         id: 2, date: '7 mars 2022', category: 'Optique',
         title: 'Renouveler vos lunettes',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/nouvelles_lunettes_cerisaie.png',
+        image: '/images/news-glasses.png',
         excerpt: "Vous souhaitez renouveler votre paire de lunettes ? Pas d'inquiétude, La Cerisaie Eye Clinic est à votre disposition.",
         content: `Vous souhaitez renouveler votre paire de lunettes ? Pas d'inquiétude, La Cerisaie Eye Clinic est à votre disposition !\n\nLe renouvellement de lunettes nécessite une consultation ophtalmologique pour s'assurer que votre correction est toujours adaptée à votre vue.\n\nLors de votre consultation, notre ophtalmologiste effectuera :\n- Un examen complet de votre acuité visuelle\n- La mesure précise de votre correction actuelle\n- Une vérification de l'état général de vos yeux\n- La délivrance d'une ordonnance mise à jour si nécessaire\n\n**Prenez rendez-vous dès aujourd'hui** pour votre bilan visuel et repartez avec une ordonnance à jour, valable pour vos nouvelles lunettes ou vos lentilles de contact.`,
         color: 'from-teal-400 to-teal-600', bg: 'bg-teal-50', tagColor: 'text-teal-700',
@@ -468,7 +468,7 @@ const fr = {
       {
         id: 3, date: '7 mars 2022', category: 'Cabinet',
         title: 'Bienvenue à La Cerisaie Eye Clinic',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_8755-1024x681.jpg',
+        image: '/images/clinic.jpg',
         excerpt: "Que vous soyez un patient de longue date ou que vous nous rendiez visite pour la première fois, toute l'équipe vous souhaite la bienvenue.",
         content: `Que vous soyez un patient de longue date ou que vous nous rendiez visite pour la première fois, toute l'équipe de La Cerisaie Eye Clinic vous souhaite la bienvenue !\n\nNous sommes un cabinet d'ophtalmologie situé à Bonapriso, Avenue du Général de Gaulle à Douala. Depuis 2003, nous nous engageons à vous offrir des soins oculaires de qualité dans un environnement bienveillant et professionnel.\n\n**Nos engagements envers vous :**\n- Un accueil chaleureux et respectueux\n- Un diagnostic précis grâce à des équipements modernes\n- Une prise en charge personnalisée et à l'écoute\n- Des consultations et examens complémentaires de qualité\n- Une orientation vers les meilleurs centres chirurgicaux partenaires si nécessaire\n\n**Nous vous attendons !**`,
         color: 'from-violet-400 to-violet-600', bg: 'bg-violet-50', tagColor: 'text-violet-700',
@@ -476,7 +476,7 @@ const fr = {
       {
         id: 4, date: '23 décembre 2021', category: 'Événement',
         title: 'Bonne année 2022 !',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2021/12/1-2-1024x576.jpg',
+        image: '/images/admin.jpg',
         excerpt: "Toute l'équipe de La Cerisaie Eye Clinic vous souhaite une excellente nouvelle année, pleine de santé et de belles découvertes.",
         content: `Toute l'équipe de La Cerisaie Eye Clinic vous souhaite une excellente nouvelle année 2022, riche en bonheur, en santé et en belles découvertes !\n\nNous tenons à remercier chaleureusement tous nos patients qui nous ont fait confiance tout au long de l'année 2021. Votre fidélité et votre confiance sont notre plus belle récompense.\n\nL'année 2021 a été marquée par des défis sanitaires sans précédent, mais nous avons continué à vous accueillir et à prendre soin de votre santé visuelle dans le respect des mesures de protection.\n\nEn 2022, nous continuons à nous améliorer pour vous offrir encore de meilleurs soins.\n\n**De la part de toute l'équipe :** Dr. Théodat Manga, Dr. Georges Mouen, Dr. Mbia Zobo, Mr. Marcel Epesse, Dr. Maxime Manga, et tout le personnel administratif et soignant — merci et bonne année !`,
         color: 'from-orange-400 to-orange-600', bg: 'bg-orange-50', tagColor: 'text-orange-700',
@@ -517,12 +517,12 @@ const fr = {
     address: 'Bonapriso, Avenue du Général de Gaulle, Douala',
   },
   doctors: [
-    { name: 'Dr. Théodat Manga', role: 'Ophtalmologiste', sub: 'Cataracte, glaucome & segment antérieur', badge: 'Chef de cabinet', description: "Chef de cabinet de La Cerisaie Eye Clinic, le Dr. Théodat Manga est un ophtalmologiste reconnu au Cameroun. Sa pratique se concentre sur la chirurgie de la cataracte et la prise en charge du glaucome.", speciality: 'Chirurgie de la cataracte, glaucome & segment antérieur', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9357-scaled.jpg' },
-    { name: 'Dr. Georges Mouen', role: 'Ophtalmologiste', sub: 'Rétine, segment postérieur & urgences', badge: null, description: "Spécialiste du segment postérieur, le Dr. Georges Mouen assure la prise en charge des pathologies rétiniennes, du glaucome et des urgences ophtalmologiques.", speciality: 'Rétine, segment postérieur & urgences oculaires', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9152-scaled.jpg' },
-    { name: 'Dr. Mbia Zobo', role: 'Ophtalmologiste', sub: 'Chirurgie réfractive, cornée & kératocône', badge: null, description: "Spécialisé dans la chirurgie réfractive et les pathologies cornéennes, le Dr. Mbia Zobo prend en charge le kératocône et les bilans pré-opératoires pour la correction de la vue.", speciality: 'Chirurgie réfractive, cornée & kératocône', initials: 'MZ', color: 'from-violet-400 to-violet-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9067-scaled.jpg' },
+    { name: 'Dr. Théodat Manga', role: 'Ophtalmologiste', sub: 'Cataracte, glaucome & segment antérieur', badge: 'Chef de cabinet', description: "Chef de cabinet de La Cerisaie Eye Clinic, le Dr. Théodat Manga est un ophtalmologiste reconnu au Cameroun. Sa pratique se concentre sur la chirurgie de la cataracte et la prise en charge du glaucome.", speciality: 'Chirurgie de la cataracte, glaucome & segment antérieur', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: '/images/dr-manga.jpg' },
+    { name: 'Dr. Georges Mouen', role: 'Ophtalmologiste', sub: 'Rétine, segment postérieur & urgences', badge: null, description: "Spécialiste du segment postérieur, le Dr. Georges Mouen assure la prise en charge des pathologies rétiniennes, du glaucome et des urgences ophtalmologiques.", speciality: 'Rétine, segment postérieur & urgences oculaires', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: '/images/dr-mouen.jpg' },
+    { name: 'Dr. Mbia Zobo', role: 'Ophtalmologiste', sub: 'Chirurgie réfractive, cornée & kératocône', badge: null, description: "Spécialisé dans la chirurgie réfractive et les pathologies cornéennes, le Dr. Mbia Zobo prend en charge le kératocône et les bilans pré-opératoires pour la correction de la vue.", speciality: 'Chirurgie réfractive, cornée & kératocône', initials: 'MZ', color: 'from-violet-400 to-violet-600', photo: '/images/dr-mbia.jpg' },
   ],
   staff: [
-    { name: 'Mr. Marcel Epesse', role: 'Orthoptiste', speciality: 'Rééducation visuelle, bilan orthoptique & amblyopie', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9274-scaled.jpg' },
+    { name: 'Mr. Marcel Epesse', role: 'Orthoptiste', speciality: 'Rééducation visuelle, bilan orthoptique & amblyopie', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: '/images/mr-epesse.jpg' },
     { name: 'Dr. Maxime Manga', role: 'Médecin généraliste', speciality: 'Prise en charge globale & suivi des patients', initials: 'MM', color: 'from-orange-400 to-orange-600', photo: null },
     { name: 'Mme Angele Nyamsi', role: 'Infirmière spécialisée (ISO)', speciality: 'Soins infirmiers spécialisés en ophtalmologie', initials: 'AN', color: 'from-pink-400 to-pink-600', photo: null },
   ],

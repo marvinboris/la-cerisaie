@@ -179,7 +179,7 @@ export default function AboutPage() {
           <div className="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden">
             <div className="grid lg:grid-cols-2">
               <div className="relative h-64 lg:h-auto overflow-hidden">
-                <img src="https://lacerisaie-eyeclinic.com/wp-content/uploads/2021/12/1-2-1024x576.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
+                <img src="/images/admin.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-50/50 hidden lg:block" />
               </div>
               <div className="p-8 flex flex-col justify-center text-center lg:text-left">

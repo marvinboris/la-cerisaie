@@ -15,8 +15,8 @@ const serviceColors = [
 const statIcons = [Award, Users, Star, Calendar]
 
 const newsImages = [
-  'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/Bienvenue_Cerisaie.png',
-  'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/nouvelles_lunettes_cerisaie.png',
+  '/images/news-welcome.png',
+  '/images/news-glasses.png',
 ]
 const newsColors = [
   { color: 'from-blue-400 to-blue-600', bg: 'bg-blue-50' },
@@ -24,10 +24,10 @@ const newsColors = [
 ]
 
 const insurers = [
-  { name: 'AXA', logo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2020/12/logo-axa.jpg' },
-  { name: 'Wallis', logo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2020/12/WALLIS.png' },
-  { name: 'Saham', logo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2020/12/Saham_assurance.png' },
-  { name: 'GMC', logo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2020/12/GMC-Garantie-Mutuelle-des-Cadres-450x300-1.png' },
+  { name: 'AXA', logo: '/images/insurer-axa.jpg' },
+  { name: 'Wallis', logo: '/images/insurer-wallis.png' },
+  { name: 'Saham', logo: '/images/insurer-saham.png' },
+  { name: 'GMC', logo: '/images/insurer-gmc.png' },
 ]
 
 export default function Home() {
@@ -188,7 +188,7 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden h-48">
-                  <img src="https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_8755-1024x681.jpg" alt="La Cerisaie Eye Clinic" className="w-full h-full object-cover" />
+                  <img src="/images/clinic.jpg" alt="La Cerisaie Eye Clinic" className="w-full h-full object-cover" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {aboutStats.map((s) => (

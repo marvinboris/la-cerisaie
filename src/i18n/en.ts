@@ -452,7 +452,7 @@ const en = {
       {
         id: 1, date: 'March 7, 2022', category: 'Prevention',
         title: 'Your vision is precious',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/Bienvenue_Cerisaie.png',
+        image: '/images/news-welcome.png',
         excerpt: "There are so many beautiful things to see and discover. La Cerisaie Eye Clinic is committed to taking care of your eyes.",
         content: `There are so many beautiful things to see and discover in this world. Vision is one of our most precious senses — it allows us to appreciate the beauty around us, to read, to work, to drive, to see the faces of those we love.\n\nThis is why at La Cerisaie Eye Clinic, we do everything in our power to take care of your visual health with the utmost seriousness and compassion.\n\nDon't leave decreased vision, eye pain, glare or any other symptom without a consultation. Early treatment is often the key to a better outcome.\n\n**Our team is at your service.** Don't wait to make an appointment with one of our ophthalmologists. Together, let's take care of your vision.`,
         color: 'from-blue-400 to-blue-600', bg: 'bg-blue-50', tagColor: 'text-blue-700',
@@ -460,7 +460,7 @@ const en = {
       {
         id: 2, date: 'March 7, 2022', category: 'Optics',
         title: 'Renewing your glasses',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/03/nouvelles_lunettes_cerisaie.png',
+        image: '/images/news-glasses.png',
         excerpt: "Looking to renew your glasses? No worries, La Cerisaie Eye Clinic is here for you.",
         content: `Looking to renew your glasses? No worries, La Cerisaie Eye Clinic is here for you!\n\nRenewing glasses requires an ophthalmological consultation to ensure your prescription is still suited to your vision. Vision evolves over time, and poorly adapted glasses can cause eye fatigue, headaches and daily discomfort.\n\nDuring your consultation, our ophthalmologist will perform:\n- A complete visual acuity examination\n- Precise measurement of your current prescription\n- A check of the general state of your eyes\n- Issuance of an updated prescription if necessary\n\n**Book an appointment today** for your eye assessment and leave with an up-to-date prescription, valid for your new glasses or contact lenses.`,
         color: 'from-teal-400 to-teal-600', bg: 'bg-teal-50', tagColor: 'text-teal-700',
@@ -468,7 +468,7 @@ const en = {
       {
         id: 3, date: 'March 7, 2022', category: 'Clinic',
         title: 'Welcome to La Cerisaie Eye Clinic',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_8755-1024x681.jpg',
+        image: '/images/clinic.jpg',
         excerpt: "Whether you're a long-time patient or visiting for the first time, the whole team welcomes you.",
         content: `Whether you are a long-time patient or visiting us for the first time, the entire La Cerisaie Eye Clinic team welcomes you!\n\nWe are an ophthalmology clinic located in Bonapriso, Avenue du Général de Gaulle in Douala. Since 2003, we have been committed to providing quality eye care in a caring and professional environment.\n\n**Our commitments to you:**\n- Warm and respectful reception\n- Accurate diagnosis thanks to modern equipment\n- Personalized and attentive care\n- Quality consultations and additional examinations\n- Referral to the best partner surgical centers when necessary\n\n**We look forward to seeing you!**`,
         color: 'from-violet-400 to-violet-600', bg: 'bg-violet-50', tagColor: 'text-violet-700',
@@ -476,7 +476,7 @@ const en = {
       {
         id: 4, date: 'December 23, 2021', category: 'Event',
         title: 'Happy New Year 2022!',
-        image: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2021/12/1-2-1024x576.jpg',
+        image: '/images/admin.jpg',
         excerpt: "The entire La Cerisaie Eye Clinic team wishes you an excellent new year, full of health and beautiful discoveries.",
         content: `The entire La Cerisaie Eye Clinic team wishes you an excellent new year 2022, full of happiness, health and beautiful discoveries!\n\nWe warmly thank all our patients who have trusted us throughout 2021. Your loyalty and trust are our greatest reward.\n\n2021 was marked by unprecedented health challenges, but we continued to welcome you and take care of your visual health while respecting all protection measures.\n\nIn 2022, we continue to improve to offer you even better care. New expertise, new equipment and always the same dedicated team at your service.\n\n**From the entire team:** Dr. Théodat Manga, Dr. Georges Mouen, Dr. Mbia Zobo, Mr. Marcel Epesse, Dr. Maxime Manga, and all the administrative and nursing staff — thank you and happy new year!`,
         color: 'from-orange-400 to-orange-600', bg: 'bg-orange-50', tagColor: 'text-orange-700',
@@ -517,12 +517,12 @@ const en = {
     address: 'Bonapriso, Avenue du Général de Gaulle, Douala',
   },
   doctors: [
-    { name: 'Dr. Théodat Manga', role: 'Ophthalmologist', sub: 'Cataract, glaucoma & anterior segment', badge: 'Head of clinic', description: "Head of La Cerisaie Eye Clinic, Dr. Théodat Manga is a recognized ophthalmologist in Cameroon. His practice focuses on cataract surgery and glaucoma management.", speciality: 'Cataract surgery, glaucoma & anterior segment', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9357-scaled.jpg' },
-    { name: 'Dr. Georges Mouen', role: 'Ophthalmologist', sub: 'Retina, posterior segment & emergencies', badge: null, description: "Posterior segment specialist, Dr. Georges Mouen manages retinal conditions, glaucoma and ophthalmological emergencies.", speciality: 'Retina, posterior segment & ocular emergencies', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9152-scaled.jpg' },
-    { name: 'Dr. Mbia Zobo', role: 'Ophthalmologist', sub: 'Refractive surgery, cornea & keratoconus', badge: null, description: "Specializing in refractive surgery and corneal conditions, Dr. Mbia Zobo manages keratoconus and pre-operative assessments for vision correction.", speciality: 'Refractive surgery, cornea & keratoconus', initials: 'MZ', color: 'from-violet-400 to-violet-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9067-scaled.jpg' },
+    { name: 'Dr. Théodat Manga', role: 'Ophthalmologist', sub: 'Cataract, glaucoma & anterior segment', badge: 'Head of clinic', description: "Head of La Cerisaie Eye Clinic, Dr. Théodat Manga is a recognized ophthalmologist in Cameroon. His practice focuses on cataract surgery and glaucoma management.", speciality: 'Cataract surgery, glaucoma & anterior segment', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: '/images/dr-manga.jpg' },
+    { name: 'Dr. Georges Mouen', role: 'Ophthalmologist', sub: 'Retina, posterior segment & emergencies', badge: null, description: "Posterior segment specialist, Dr. Georges Mouen manages retinal conditions, glaucoma and ophthalmological emergencies.", speciality: 'Retina, posterior segment & ocular emergencies', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: '/images/dr-mouen.jpg' },
+    { name: 'Dr. Mbia Zobo', role: 'Ophthalmologist', sub: 'Refractive surgery, cornea & keratoconus', badge: null, description: "Specializing in refractive surgery and corneal conditions, Dr. Mbia Zobo manages keratoconus and pre-operative assessments for vision correction.", speciality: 'Refractive surgery, cornea & keratoconus', initials: 'MZ', color: 'from-violet-400 to-violet-600', photo: '/images/dr-mbia.jpg' },
   ],
   staff: [
-    { name: 'Mr. Marcel Epesse', role: 'Orthoptist', speciality: 'Visual rehabilitation, orthoptic assessment & amblyopia', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: 'https://lacerisaie-eyeclinic.com/wp-content/uploads/2022/04/KI8_9274-scaled.jpg' },
+    { name: 'Mr. Marcel Epesse', role: 'Orthoptist', speciality: 'Visual rehabilitation, orthoptic assessment & amblyopia', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: '/images/mr-epesse.jpg' },
     { name: 'Dr. Maxime Manga', role: 'General practitioner', speciality: 'Global care & patient follow-up', initials: 'MM', color: 'from-orange-400 to-orange-600', photo: null },
     { name: 'Mme Angele Nyamsi', role: 'Specialized nurse (ISO)', speciality: 'Specialized ophthalmological nursing care', initials: 'AN', color: 'from-pink-400 to-pink-600', photo: null },
   ],
