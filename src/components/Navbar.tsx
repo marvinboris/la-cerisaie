@@ -1,30 +1,33 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
-
-const navLinks = [
-  { label: 'Accueil', to: '/' },
-  {
-    label: 'Pathologies',
-    to: '/la-cataracte',
-    children: [
-      { label: 'La cataracte', to: '/la-cataracte' },
-      { label: 'Défauts de la vision', to: '/defauts-de-vision' },
-      { label: 'Vivre sans lunettes', to: '/vivre-sans-lunettes' },
-    ],
-  },
-  { label: 'À propos', to: '/a-propos' },
-  { label: 'Actualités', to: '/actualites' },
-  { label: 'Contact', to: '/contact' },
-]
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const { pathname } = useLocation()
+  const { t } = useTranslation()
 
   const isHome = pathname === '/'
+
+  const navLinks = [
+    { label: t('nav.home'), to: '/' },
+    {
+      label: t('nav.pathologies'),
+      to: '/la-cataracte',
+      children: [
+        { label: t('nav.cataract'), to: '/la-cataracte' },
+        { label: t('nav.visionDefects'), to: '/defauts-de-vision' },
+        { label: t('nav.noGlasses'), to: '/vivre-sans-lunettes' },
+      ],
+    },
+    { label: t('nav.about'), to: '/a-propos' },
+    { label: t('nav.news'), to: '/actualites' },
+    { label: t('nav.contact'), to: '/contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -110,6 +113,7 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher transparent={transparent} />
             <a
               href="tel:+237699955164"
               className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
@@ -117,10 +121,10 @@ export default function Navbar() {
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span>699 955 164</span>
+              <span>{t('nav.phone')}</span>
             </a>
             <Link to="/rendez-vous" className="btn-primary text-sm py-2.5 px-5 shadow-md shadow-teal-200">
-              Prendre RDV
+              {t('nav.bookCta')}
             </Link>
           </div>
 
@@ -166,12 +170,15 @@ export default function Navbar() {
             ))}
           </div>
           <div className="pt-4 mt-2 border-t border-slate-100 space-y-3">
-            <a href="tel:+237699955164" className="flex items-center gap-2 text-slate-600 font-medium">
-              <Phone className="w-4 h-4 text-teal-600" />
-              (+237) 699 955 164
-            </a>
+            <div className="flex items-center justify-between">
+              <a href="tel:+237699955164" className="flex items-center gap-2 text-slate-600 font-medium">
+                <Phone className="w-4 h-4 text-teal-600" />
+                (+237) 699 955 164
+              </a>
+              <LanguageSwitcher />
+            </div>
             <Link to="/rendez-vous" className="btn-primary w-full justify-center">
-              Prendre RDV
+              {t('nav.bookCta')}
             </Link>
           </div>
         </div>

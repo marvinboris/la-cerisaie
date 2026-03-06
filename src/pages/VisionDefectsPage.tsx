@@ -1,120 +1,57 @@
 import { Link } from 'react-router-dom'
+import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
-import { ArrowRight, Eye, ZoomIn, ZoomOut, RotateCcw, Clock, CheckCircle } from 'lucide-react'
-
-const defects = [
-  {
-    icon: ZoomOut,
-    name: 'Myopie',
-    subtitle: 'Vision de loin floue',
-    description: "Le globe oculaire est trop long : la lumière se focalise en avant de la rétine plutôt que dessus. Le myope voit nettement de près mais floue de loin. Elle touche environ 30 % de la population et est souvent héréditaire.",
-    signs: ["Plisse les yeux pour voir de loin", "Vision nette pour lire ou utiliser un téléphone", "Maux de tête après un effort visuel de loin", "Apparaît souvent dans l'enfance, évolue à l'adolescence"],
-    corrections: ["Lunettes à verres divergents (négatifs)", "Lentilles de contact", "Chirurgie laser (LASIK, PKR)", "Implant phaque si myopie forte"],
-    color: 'from-teal-500 to-teal-600',
-    bg: 'bg-teal-50',
-    iconColor: 'text-teal-600',
-    border: 'border-teal-200',
-  },
-  {
-    icon: ZoomIn,
-    name: 'Hypermétropie',
-    subtitle: 'Vision de près difficile',
-    description: "L'œil est trop court : la lumière se focalise en arrière de la rétine. L'hypermétrope compense par un effort d'accommodation permanent qui provoque rapidement fatigue oculaire et maux de tête.",
-    signs: ["Fatigue et maux de tête après la lecture", "Vision de près floue, surtout en fin de journée", "Parfois vue de loin normale (compensation)", "Peut provoquer un strabisme chez l'enfant"],
-    corrections: ["Lunettes à verres convergents (positifs)", "Lentilles de contact", "Chirurgie laser", "PRELEX (échange de cristallin) après 55 ans"],
-    color: 'from-blue-500 to-blue-600',
-    bg: 'bg-blue-50',
-    iconColor: 'text-blue-600',
-    border: 'border-blue-200',
-  },
-  {
-    icon: RotateCcw,
-    name: 'Astigmatisme',
-    subtitle: 'Vision déformée sur certains axes',
-    description: "La cornée n'est pas parfaitement sphérique mais légèrement ovale. La lumière se focalise selon plusieurs axes différents, provoquant une vision floue et déformée qui peut confondre certaines lettres ou chiffres.",
-    signs: ["Vision floue à toutes les distances", "Confusion entre lettres similaires (H/N, O/Q...)", "Fatigue visuelle et maux de tête fréquents", "Souvent associé à la myopie ou l'hypermétropie"],
-    corrections: ["Lunettes à verres cylindriques (toriques)", "Lentilles toriques souples ou rigides", "Chirurgie laser avec correction de l'axe", "Implant torique lors de la chirurgie de la cataracte"],
-    color: 'from-violet-500 to-violet-600',
-    bg: 'bg-violet-50',
-    iconColor: 'text-violet-600',
-    border: 'border-violet-200',
-  },
-  {
-    icon: Clock,
-    name: 'Presbytie',
-    subtitle: 'Perte de la vision de près après 40 ans',
-    description: "À partir de 40 ans, le cristallin perd progressivement son élasticité et sa capacité à s'accommoder pour voir de près. C'est un phénomène physiologique normal qui touche tout le monde sans exception.",
-    signs: ["Besoin d'éloigner les documents pour lire", "Vision de près floue le soir ou en lumière faible", "Maux de tête après la lecture", "Apparaît vers 40-45 ans, s'aggrave jusqu'à 60 ans"],
-    corrections: ["Lunettes progressives ou bifocales", "Lentilles multifocales ou monovision", "PRELEX ou implants multifocaux (correction définitive)", "Laser adapté pour les myopes"],
-    color: 'from-orange-500 to-orange-600',
-    bg: 'bg-orange-50',
-    iconColor: 'text-orange-600',
-    border: 'border-orange-200',
-  },
-]
+import { ArrowRight } from 'lucide-react'
 
 export default function VisionDefectsPage() {
+  const { t, tList } = useT()
+  type Defect = { name: string; color: string; bg: string; border: string; description: string; signs: string[]; corrections: string[] }
+  const defects: Defect[] = tList('visionDefects.defects.items')
+
   return (
     <>
       <PageHero
-        tag="Réfraction oculaire"
-        title="Les défauts"
-        titleAccent="de la vision"
-        description="Myopie, hypermétropie, astigmatisme, presbytie — les défauts réfractifs sont très répandus et se corrigent aujourd'hui par des méthodes optiques ou chirurgicales sûres et efficaces."
-        breadcrumbs={[{ label: 'Accueil', to: '/' }, { label: 'Défauts de la vision' }]}
-        cta={{ label: 'Consulter pour un bilan visuel', to: '/rendez-vous' }}
+        tag={t('visionDefects.hero.tag')}
+        title={t('visionDefects.hero.title')}
+        titleAccent={t('visionDefects.hero.accent')}
+        description={t('visionDefects.hero.desc')}
+        breadcrumbs={[{ label: t('nav.home'), to: '/' }, { label: t('nav.visionDefects') }]}
+        cta={{ label: t('visionDefects.hero.cta'), to: '/rendez-vous' }}
       />
 
-      {/* Eye anatomy */}
+      {/* Anatomy */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="section-tag">
                 <div className="w-8 h-px bg-teal-500" />
-                Fonctionnement de l'œil
+                {t('visionDefects.anatomy.tag')}
               </div>
               <h2 className="section-title mb-6">
-                L'œil : une
-                <span className="block text-gradient">caméra de précision</span>
+                {t('visionDefects.anatomy.title')}
+                <span className="block text-gradient">{t('visionDefects.anatomy.accent')}</span>
               </h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                L'œil humain fonctionne comme un appareil photo : la <strong>cornée</strong> fait office d'objectif,
-                l'<strong>iris</strong> de diaphragme et le <strong>cristallin</strong> de lentille focalisante.
-                La vision normale permet de voir nettement à partir de 2 mètres au repos.
-              </p>
-              <p className="text-slate-500 leading-relaxed mb-6">
-                Pour la vision de près, le cristallin se deforme (accommodation) pour focaliser l'image
-                sur la rétine. Lorsque la forme de l'œil ou de la cornée est imparfaite, l'image
-                ne se forme pas exactement sur la rétine : c'est un défaut réfractif.
-              </p>
-              <div className="bg-teal-50 border border-teal-100 rounded-2xl p-5">
-                <p className="text-teal-800 text-sm leading-relaxed">
-                  <strong>Bonne nouvelle :</strong> les défauts réfractifs sont aujourd'hui corrigés
-                  par des méthodes chirurgicales <em>simples, sûres et efficaces</em>, avec plus de
-                  30 ans de recul et 60 millions de cas traités dans le monde.
-                </p>
-              </div>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">{t('visionDefects.anatomy.desc1')}</p>
+              <p className="text-slate-500 leading-relaxed">{t('visionDefects.anatomy.desc2')}</p>
             </div>
 
-            {/* Anatomy diagram */}
-            <div className="bg-gradient-to-br from-slate-900 to-teal-900 rounded-3xl p-10 flex justify-center">
-              <div className="relative w-72 h-72">
-                <svg viewBox="0 0 290 290" className="w-full h-full">
-                  <circle cx="145" cy="145" r="125" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
-                  <ellipse cx="38" cy="145" rx="32" ry="58" fill="rgba(94,234,212,0.25)" stroke="rgba(94,234,212,0.7)" strokeWidth="1.5" />
-                  <circle cx="145" cy="145" r="55" fill="rgba(13,148,136,0.55)" />
-                  <circle cx="145" cy="145" r="28" fill="rgba(2,44,42,0.95)" />
-                  <circle cx="158" cy="132" r="9" fill="rgba(255,255,255,0.42)" />
-                  <ellipse cx="107" cy="145" rx="18" ry="34" fill="rgba(165,243,252,0.2)" stroke="rgba(165,243,252,0.5)" strokeWidth="1.5" />
-                  <path d="M 258 90 Q 282 145 258 200" stroke="rgba(249,115,22,0.7)" strokeWidth="10" fill="none" strokeLinecap="round" />
-                  <line x1="270" y1="145" x2="290" y2="145" stroke="rgba(249,115,22,0.85)" strokeWidth="7" strokeLinecap="round" />
-                  <text x="14" y="82" fill="rgba(94,234,212,0.95)" fontSize="10" fontWeight="700">Cornée</text>
-                  <text x="84" y="94" fill="rgba(165,243,252,0.95)" fontSize="10" fontWeight="700">Cristallin</text>
-                  <text x="118" y="220" fill="rgba(255,255,255,0.75)" fontSize="10" fontWeight="700">Iris & Pupille</text>
-                  <text x="228" y="76" fill="rgba(249,115,22,0.95)" fontSize="10" fontWeight="700">Rétine</text>
-                  <text x="268" y="166" fill="rgba(249,115,22,0.95)" fontSize="10" fontWeight="700">Nerf</text>
-                  <text x="263" y="179" fill="rgba(249,115,22,0.95)" fontSize="10" fontWeight="700">optique</text>
+            <div className="bg-gradient-to-br from-teal-900 to-slate-900 rounded-3xl p-10 text-white relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)`, backgroundSize: '24px 24px' }} />
+              <div className="relative">
+                <svg viewBox="0 0 300 200" className="w-full max-w-sm mx-auto">
+                  <ellipse cx="150" cy="100" rx="130" ry="80" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
+                  <ellipse cx="90" cy="100" rx="40" ry="50" fill="rgba(74,127,165,0.3)" stroke="rgba(74,127,165,0.6)" strokeWidth="1.5" />
+                  <circle cx="155" cy="100" r="35" fill="rgba(74,127,165,0.4)" stroke="rgba(74,127,165,0.7)" strokeWidth="1.5" />
+                  <circle cx="155" cy="100" r="18" fill="rgba(27,56,110,0.9)" />
+                  <circle cx="163" cy="93" r="5" fill="rgba(255,255,255,0.5)" />
+                  <rect x="200" y="85" width="50" height="30" rx="5" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+                  <line x1="150" y1="100" x2="200" y2="100" stroke="rgba(74,127,165,0.8)" strokeWidth="2" strokeDasharray="4,2" />
+                  <circle cx="200" cy="100" r="4" fill="rgba(74,127,165,1)" />
+                  <text x="82" y="155" fill="rgba(255,255,255,0.6)" fontSize="9" textAnchor="middle">{t('visionDefects.anatomy.cornea')}</text>
+                  <text x="155" y="155" fill="rgba(255,255,255,0.6)" fontSize="9" textAnchor="middle">{t('visionDefects.anatomy.lens')}</text>
+                  <text x="222" y="155" fill="rgba(255,255,255,0.6)" fontSize="9" textAnchor="middle">{t('visionDefects.anatomy.retina')}</text>
+                  <text x="200" y="96" fill="rgba(74,127,165,1)" fontSize="8" textAnchor="middle">{t('visionDefects.anatomy.focus')}</text>
                 </svg>
               </div>
             </div>
@@ -122,97 +59,67 @@ export default function VisionDefectsPage() {
         </div>
       </section>
 
-      {/* Defects detail */}
+      {/* Defects */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="section-tag justify-center">
               <div className="w-8 h-px bg-teal-500" />
-              Les 4 défauts réfractifs
+              {t('visionDefects.defects.tag')}
               <div className="w-8 h-px bg-teal-500" />
             </div>
             <h2 className="section-title">
-              Comprendre chaque
-              <span className="block text-gradient">trouble visuel</span>
+              {t('visionDefects.defects.title')}
+              <span className="block text-gradient">{t('visionDefects.defects.accent')}</span>
             </h2>
           </div>
-
-          <div className="space-y-8">
-            {defects.map((defect, i) => {
-              const Icon = defect.icon
-              return (
-                <div key={defect.name} className={`bg-white rounded-3xl border-2 ${defect.border} overflow-hidden`}>
-                  <div className="grid lg:grid-cols-3 gap-0">
-                    {/* Left — title */}
-                    <div className={`${defect.bg} p-8 flex flex-col justify-center`}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-                          <Icon className={`w-6 h-6 ${defect.iconColor}`} strokeWidth={1.5} />
-                        </div>
-                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">N°{i + 1}</span>
-                      </div>
-                      <h3 className="font-display text-3xl font-bold text-slate-900 mb-2">{defect.name}</h3>
-                      <div className={`text-sm font-semibold bg-gradient-to-r ${defect.color} bg-clip-text text-transparent mb-4`}>{defect.subtitle}</div>
-                      <p className="text-slate-600 text-sm leading-relaxed">{defect.description}</p>
+          <div className="space-y-6">
+            {defects.map((defect) => (
+              <div key={defect.name} className={`bg-white rounded-3xl border-2 ${defect.border} overflow-hidden`}>
+                <div className="grid lg:grid-cols-3">
+                  <div className={`${defect.bg} p-8 flex flex-col justify-center`}>
+                    <div className={`inline-block px-4 py-2 rounded-2xl bg-gradient-to-r ${defect.color} text-white font-display text-2xl font-bold mb-4 w-fit`}>
+                      {defect.name}
                     </div>
-
-                    {/* Middle — signs */}
-                    <div className="p-8 border-l border-slate-100">
-                      <h4 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
-                        <Eye className="w-4 h-4 text-slate-400" />
-                        Signes à reconnaître
-                      </h4>
-                      <ul className="space-y-3">
-                        {defect.signs.map((sign) => (
-                          <li key={sign} className="flex items-start gap-2.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 flex-shrink-0" />
-                            <span className="text-slate-600 text-sm leading-relaxed">{sign}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Right — corrections */}
-                    <div className="p-8 border-l border-slate-100 bg-slate-50">
-                      <h4 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-teal-500" />
-                        Options de correction
-                      </h4>
-                      <ul className="space-y-3">
-                        {defect.corrections.map((correction) => (
-                          <li key={correction} className="flex items-start gap-2.5">
-                            <CheckCircle className="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-slate-700 text-sm leading-relaxed">{correction}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <p className="text-slate-600 text-sm leading-relaxed">{defect.description}</p>
+                  </div>
+                  <div className="p-8 border-l border-slate-100">
+                    <h4 className="font-semibold text-slate-900 mb-4 text-sm uppercase tracking-wide">{t('visionDefects.defects.signs')}</h4>
+                    <ul className="space-y-2">
+                      {defect.signs.map((sign) => (
+                        <li key={sign} className="flex items-start gap-2 text-slate-600 text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5 flex-shrink-0" />
+                          {sign}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="p-8 border-l border-slate-100">
+                    <h4 className="font-semibold text-slate-900 mb-4 text-sm uppercase tracking-wide">{t('visionDefects.defects.corrections')}</h4>
+                    <ul className="space-y-2">
+                      {defect.corrections.map((correction) => (
+                        <li key={correction} className="flex items-start gap-2 text-slate-600 text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 flex-shrink-0" />
+                          {correction}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">
-            Faites évaluer votre vision
-          </h2>
-          <p className="text-slate-500 mb-8 text-lg">
-            Un bilan visuel complet chez un ophtalmologiste permet de diagnostiquer précisément
-            vos défauts et de vous proposer la correction la plus adaptée à votre mode de vie.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/rendez-vous" className="btn-primary text-base px-8 py-4 shadow-lg shadow-teal-200">
-              Prendre rendez-vous <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/vivre-sans-lunettes" className="btn-outline text-base px-8 py-4">
-              Vivre sans lunettes
-            </Link>
-          </div>
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">{t('visionDefects.cta.title')}</h2>
+          <p className="text-slate-500 mb-8">{t('visionDefects.cta.desc')}</p>
+          <Link to="/rendez-vous" className="btn-primary text-base px-8 py-4 shadow-lg shadow-teal-200">
+            {t('visionDefects.cta.cta')} <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
     </>

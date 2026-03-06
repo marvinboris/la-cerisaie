@@ -1,29 +1,19 @@
 import { Link } from 'react-router-dom'
+import { useT } from '../i18n/useT'
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
 
-const links = {
-  clinic: [
-    { label: 'Accueil', to: '/' },
-    { label: 'À propos', to: '/a-propos' },
-    { label: 'Notre équipe', to: '/a-propos#team' },
-    { label: 'Actualités', to: '/actualites' },
-    { label: 'Contact', to: '/contact' },
-  ],
-  services: [
-    { label: 'La cataracte', to: '/la-cataracte' },
-    { label: 'Défauts de vision', to: '/defauts-de-vision' },
-    { label: 'Vivre sans lunettes', to: '/vivre-sans-lunettes' },
-    { label: 'Glaucome', to: '/' },
-    { label: 'Kératocône', to: '/' },
-    { label: 'OCT & Imagerie', to: '/' },
-  ],
-  legal: [
-    { label: 'Mentions légales', to: '#' },
-    { label: 'Confidentialité', to: '#' },
-  ],
-}
+const clinicLinks = [
+  { to: '/' }, { to: '/a-propos' }, { to: '/a-propos#team' }, { to: '/actualites' }, { to: '/contact' },
+]
+const serviceLinks = [
+  { to: '/la-cataracte' }, { to: '/defauts-de-vision' }, { to: '/vivre-sans-lunettes' }, { to: '/' }, { to: '/' }, { to: '/' },
+]
 
 export default function Footer() {
+  const { t, tList } = useT()
+  const clinicLabels: string[] = tList('footer.links.clinic')
+  const serviceLabels: string[] = tList('footer.links.services')
+
   return (
     <footer className="bg-slate-900 text-slate-300">
       {/* CTA Banner */}
@@ -31,18 +21,14 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
-                Prenez soin de votre vision aujourd'hui
-              </h2>
-              <p className="text-teal-100">
-                Réservez votre consultation en ligne en quelques minutes.
-              </p>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">{t('footer.cta')}</h2>
+              <p className="text-teal-100">{t('footer.ctaSub')}</p>
             </div>
             <Link
               to="/rendez-vous"
               className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-teal-700 font-bold px-8 py-4 rounded-full hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
             >
-              Prendre rendez-vous
+              {t('footer.ctaBtn')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -61,10 +47,7 @@ export default function Footer() {
                 className="h-12 w-auto object-contain brightness-0 invert"
               />
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Cabinet d'ophtalmologie de référence à Douala depuis 2003.
-              Professionnels à l'expérience éprouvée au service de votre santé visuelle.
-            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6">{t('footer.tagline')}</p>
             <div className="space-y-3">
               <a href="tel:+237699955164" className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-teal-400 transition-colors">
                 <Phone className="w-4 h-4 text-teal-500 flex-shrink-0" />
@@ -87,12 +70,12 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold text-white mb-5">Le cabinet</h4>
+            <h4 className="font-semibold text-white mb-5">{t('footer.cabinet')}</h4>
             <ul className="space-y-3">
-              {links.clinic.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-slate-400 hover:text-teal-400 transition-colors">
-                    {link.label}
+              {clinicLabels.map((label, i) => (
+                <li key={label}>
+                  <Link to={clinicLinks[i]?.to ?? '/'} className="text-sm text-slate-400 hover:text-teal-400 transition-colors">
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -101,12 +84,12 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-white mb-5">Nos spécialités</h4>
+            <h4 className="font-semibold text-white mb-5">{t('footer.specialties')}</h4>
             <ul className="space-y-3">
-              {links.services.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-slate-400 hover:text-teal-400 transition-colors">
-                    {link.label}
+              {serviceLabels.map((label, i) => (
+                <li key={label}>
+                  <Link to={serviceLinks[i]?.to ?? '/'} className="text-sm text-slate-400 hover:text-teal-400 transition-colors">
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -115,23 +98,23 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="font-semibold text-white mb-5">Horaires</h4>
+            <h4 className="font-semibold text-white mb-5">{t('footer.hours')}</h4>
             <div className="space-y-2 text-sm text-slate-400 mb-6">
               <div className="flex justify-between gap-4">
-                <span>Lundi – Vendredi</span>
-                <span className="text-slate-300 font-medium">9h – 17h</span>
+                <span>{t('footer.monFri')}</span>
+                <span className="text-slate-300 font-medium">{t('footer.monFriHours')}</span>
               </div>
               <div className="flex justify-between gap-4">
-                <span>Samedi</span>
-                <span className="text-slate-300 font-medium">Sur RDV</span>
+                <span>{t('footer.sat')}</span>
+                <span className="text-slate-300 font-medium">{t('footer.satHours')}</span>
               </div>
               <div className="flex justify-between gap-4">
-                <span>Dimanche</span>
-                <span className="text-red-400 font-medium">Fermé</span>
+                <span>{t('footer.sun')}</span>
+                <span className="text-red-400 font-medium">{t('footer.sunHours')}</span>
               </div>
             </div>
             <div className="bg-slate-800 rounded-2xl p-4 border border-slate-700">
-              <p className="text-xs text-slate-400 mb-2">Urgences ophtalmologiques</p>
+              <p className="text-xs text-slate-400 mb-2">{t('footer.urgency')}</p>
               <a href="tel:+237699955164" className="text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors">
                 (+237) 699 955 164
               </a>
@@ -144,14 +127,11 @@ export default function Footer() {
       <div className="border-t border-slate-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} La Cerisaie Eye Clinic. Tous droits réservés.
+            {t('footer.rights', { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-6">
-            {links.legal.map((link) => (
-              <Link key={link.label} to={link.to} className="text-slate-500 hover:text-slate-300 text-xs transition-colors">
-                {link.label}
-              </Link>
-            ))}
+            <Link to="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">{t('footer.legalLinks.mentions')}</Link>
+            <Link to="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">{t('footer.legalLinks.privacy')}</Link>
           </div>
         </div>
       </div>
