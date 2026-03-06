@@ -54,8 +54,8 @@ html {
 }
 
 ::selection {
-  background-color: #99f6e4;
-  color: #0f766e;
+  background-color: #ABBCDA;
+  color: #1F3A63;
 }
 
 /* Scrollbar */
@@ -66,6 +66,6 @@ html {
   background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0d9488;
+  background: #2B4C7E;
   border-radius: 9999px;
 }

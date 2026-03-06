@@ -48,13 +48,13 @@ export default function Home() {
               <svg viewBox="0 0 200 200" className="w-48 h-48 lg:w-72 lg:h-72">
                 <defs>
                   <radialGradient id="eyeGrad" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#0d9488" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#4A7FA5" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#2B4C7E" stopOpacity="0.3" />
                   </radialGradient>
                 </defs>
                 <ellipse cx="100" cy="100" rx="90" ry="50" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
                 <circle cx="100" cy="100" r="38" fill="url(#eyeGrad)" />
-                <circle cx="100" cy="100" r="20" fill="rgba(15,118,110,0.9)" />
+                <circle cx="100" cy="100" r="20" fill="rgba(27,56,110,0.9)" />
                 <circle cx="112" cy="90" r="7" fill="rgba(255,255,255,0.5)" />
                 <circle cx="90" cy="105" r="3" fill="rgba(255,255,255,0.3)" />
                 <path d="M10 100 Q100 30 190 100" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
