@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom'
 import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { CheckCircle, Award, Users, Heart, Stethoscope, GraduationCap, ArrowRight } from 'lucide-react'
+import { insurers } from '../data/insurers'
+import Seo from '../components/Seo'
 
 const valueIcons = [Award, Heart, Users]
-const insurers = ['AXA', 'Wallis', 'Saham Assurance', 'GMC']
 
 export default function AboutPage() {
   const { t, tList } = useT()
@@ -15,6 +16,7 @@ export default function AboutPage() {
 
   return (
     <>
+      <Seo title={t('seo.about.title')} description={t('seo.about.desc')} />
       <PageHero
         tag={t('about.hero.tag')}
         title={t('about.hero.title')}
@@ -123,7 +125,7 @@ export default function AboutPage() {
             {doctors.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="relative h-64 overflow-hidden">
-                  <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
+                  <img loading="lazy" src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   {member.badge && (
                     <span className="absolute top-3 right-3 bg-teal-500 text-white text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
@@ -160,7 +162,7 @@ export default function AboutPage() {
             {staff.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl p-6 border border-slate-100 flex items-center gap-4 hover:border-teal-200 transition-colors">
                 {member.photo ? (
-                  <img src={member.photo} alt={member.name} className="w-14 h-14 rounded-xl object-cover object-top flex-shrink-0 shadow-md" />
+                  <img loading="lazy" src={member.photo} alt={member.name} className="w-14 h-14 rounded-xl object-cover object-top flex-shrink-0 shadow-md" />
                 ) : (
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white font-bold font-display shadow-md flex-shrink-0 text-sm`}>
                     {member.initials}
@@ -179,7 +181,7 @@ export default function AboutPage() {
           <div className="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden">
             <div className="grid lg:grid-cols-2">
               <div className="relative h-64 lg:h-auto overflow-hidden">
-                <img src="/images/admin.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
+                <img loading="lazy" src="/images/admin.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-50/50 hidden lg:block" />
               </div>
               <div className="p-8 flex flex-col justify-center text-center lg:text-left">
@@ -199,10 +201,10 @@ export default function AboutPage() {
               <h3 className="font-display text-2xl font-bold text-slate-900 mb-1">{t('about.insurance.title')}</h3>
               <p className="text-slate-500 text-sm">{t('about.insurance.sub')}</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center items-center gap-6">
               {insurers.map((ins) => (
-                <div key={ins} className="bg-white border border-slate-200 rounded-full px-6 py-3 font-bold text-slate-700 text-sm shadow-sm hover:border-teal-300 transition-colors">
-                  {ins}
+                <div key={ins.id} className="bg-white border border-slate-200 rounded-2xl px-6 py-3 shadow-sm hover:border-teal-300 transition-colors flex items-center justify-center h-16">
+                  <img loading="lazy" src={ins.logo} alt={ins.name} className="h-8 w-auto object-contain" />
                 </div>
               ))}
             </div>

@@ -37,6 +37,37 @@
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
+
+  /* Bandeau de logos défilant. La liste est dupliquée dans le JSX : la piste
+     translate de -50% puis boucle, la seconde moitié prend exactement la place
+     de la première, sans saut visible. */
+  .marquee {
+    @apply overflow-hidden;
+    mask-image: linear-gradient(to right, transparent, black 4rem, black calc(100% - 4rem), transparent);
+  }
+
+  .marquee-track {
+    @apply flex items-center gap-6 w-max;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+/* -50% tombe au milieu du dernier gap, pas au début du 2e exemplaire :
+   il faut retrancher la moitié du gap (gap-6 = 1.5rem) pour boucler sans saut. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.75rem)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    @apply flex-wrap justify-center w-full;
+  }
 }
 
 @layer utilities {

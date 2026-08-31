@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { ArrowRight } from 'lucide-react'
+import Seo from '../components/Seo'
 
 export default function VisionDefectsPage() {
   const { t, tList } = useT()
@@ -10,6 +11,7 @@ export default function VisionDefectsPage() {
 
   return (
     <>
+      <Seo title={t('seo.visionDefects.title')} description={t('seo.visionDefects.desc')} />
       <PageHero
         tag={t('visionDefects.hero.tag')}
         title={t('visionDefects.hero.title')}

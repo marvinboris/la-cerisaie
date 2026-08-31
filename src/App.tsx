@@ -10,6 +10,9 @@ import AboutPage from './pages/AboutPage'
 import AppointmentPage from './pages/AppointmentPage'
 import NewsPage from './pages/NewsPage'
 import ContactPage from './pages/ContactPage'
+import PathologiesPage from './pages/PathologiesPage'
+import PathologyPage from './pages/PathologyPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -27,6 +30,9 @@ export default function App() {
             <Route path="/rendez-vous" element={<AppointmentPage />} />
             <Route path="/actualites" element={<NewsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/pathologies" element={<PathologiesPage />} />
+            <Route path="/pathologies/:slug" element={<PathologyPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />

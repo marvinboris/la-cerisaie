@@ -3,6 +3,8 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
+import { phones } from '../data/contact'
+import { pathologies } from '../data/pathologies'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,12 +19,13 @@ export default function Navbar() {
     { label: t('nav.home'), to: '/' },
     {
       label: t('nav.pathologies'),
-      to: '/la-cataracte',
-      children: [
-        { label: t('nav.cataract'), to: '/la-cataracte' },
-        { label: t('nav.visionDefects'), to: '/defauts-de-vision' },
-        { label: t('nav.noGlasses'), to: '/vivre-sans-lunettes' },
-      ],
+      to: '/pathologies',
+      children: pathologies.map(({ id, to, Icon }) => ({
+        label: t(`pathologySummaries.${id}.name`),
+        short: t(`pathologySummaries.${id}.short`),
+        to,
+        Icon,
+      })),
     },
     { label: t('nav.about'), to: '/a-propos' },
     { label: t('nav.news'), to: '/actualites' },
@@ -54,7 +57,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="https://lacerisaie-eyeclinic.com/wp-content/uploads/2020/11/Logo.png"
+              src="/images/logo.png"
               alt="La Cerisaie Eye Clinic"
               className={`h-12 w-auto object-contain transition-all duration-300 ${transparent ? 'brightness-0 invert' : ''}`}
             />
@@ -93,17 +96,29 @@ export default function Navbar() {
 
                 {/* Dropdown */}
                 {link.children && openDropdown === link.label && (
-                  <div className="absolute top-full left-0 pt-2 w-52">
-                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.to}
-                          to={child.to}
-                          className="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[42rem] max-w-[calc(100vw-2rem)]">
+                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden p-3">
+                      <div className="grid grid-cols-2 gap-1">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.to}
+                            to={child.to}
+                            className="flex gap-3 px-3 py-3 rounded-xl hover:bg-teal-50 transition-colors group/item"
+                          >
+                            <child.Icon className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                            <span>
+                              <span className="block text-sm font-medium text-slate-800 group-hover/item:text-teal-700">{child.label}</span>
+                              <span className="block text-xs text-slate-500 leading-snug mt-0.5">{child.short}</span>
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                      <Link
+                        to="/pathologies"
+                        className="flex items-center justify-center gap-1.5 mt-2 pt-3 border-t border-slate-100 text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors"
+                      >
+                        {t('nav.allPathologies')} <ChevronDown className="w-3.5 h-3.5 -rotate-90" />
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -114,15 +129,22 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher transparent={transparent} />
-            <a
-              href="tel:+237699955164"
-              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
-                transparent ? 'text-white/80 hover:text-white' : 'text-slate-600 hover:text-teal-600'
-              }`}
-            >
-              <Phone className="w-4 h-4" />
-              <span>{t('nav.phone')}</span>
-            </a>
+            <div className="flex items-center gap-2">
+              <Phone className={`w-4 h-4 ${transparent ? 'text-white/80' : 'text-teal-600'}`} />
+              <div className="flex flex-col leading-tight">
+                {phones.map((phone) => (
+                  <a
+                    key={phone.operator}
+                    href={phone.href}
+                    className={`text-xs font-medium whitespace-nowrap transition-colors duration-300 ${
+                      transparent ? 'text-white/80 hover:text-white' : 'text-slate-600 hover:text-teal-600'
+                    }`}
+                  >
+                    <span className="font-semibold">{phone.operator}</span> {phone.display}
+                  </a>
+                ))}
+              </div>
+            </div>
             <Link to="/rendez-vous" className="btn-primary text-sm py-2.5 px-5 shadow-md shadow-teal-200">
               {t('nav.bookCta')}
             </Link>
@@ -170,11 +192,15 @@ export default function Navbar() {
             ))}
           </div>
           <div className="pt-4 mt-2 border-t border-slate-100 space-y-3">
-            <div className="flex items-center justify-between">
-              <a href="tel:+237699955164" className="flex items-center gap-2 text-slate-600 font-medium">
-                <Phone className="w-4 h-4 text-teal-600" />
-                (+237) 699 955 164
-              </a>
+            <div className="flex items-start justify-between">
+              <div className="flex flex-col gap-1">
+                {phones.map((phone) => (
+                  <a key={phone.operator} href={phone.href} className="flex items-center gap-2 text-sm text-slate-600 font-medium">
+                    <Phone className="w-4 h-4 text-teal-600" />
+                    <span className="font-semibold">{phone.operator}</span> {phone.display}
+                  </a>
+                ))}
+              </div>
               <LanguageSwitcher />
             </div>
             <Link to="/rendez-vous" className="btn-primary w-full justify-center">
