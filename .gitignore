@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 .firebase/
+public/robots.txt
+public/sitemap.xml

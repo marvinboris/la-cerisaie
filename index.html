@@ -5,9 +5,9 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Cabinet d'ophtalmologie à Bonapriso, Douala depuis 2003. Cataracte, glaucome, chirurgie réfractive. 3 ophtalmologistes et prise de rendez-vous en ligne." />
-    <meta name="robots" content="index, follow" />
+    <!-- meta robots posée par <Seo>, qui suit IS_INDEXABLE (voir src/lib/seo.ts) -->
     <title>Ophtalmologue à Douala | La Cerisaie Eye Clinic</title>
-    <link rel="canonical" href="https://lacerisaie-eyeclinic.com/" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
 
     <!-- Open Graph / Twitter — valeurs par défaut, surchargées par page via <Seo> -->
     <meta property="og:type" content="website" />
@@ -16,12 +16,12 @@
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:title" content="Ophtalmologue à Douala | La Cerisaie Eye Clinic" />
     <meta property="og:description" content="Cabinet d'ophtalmologie à Bonapriso, Douala depuis 2003. Cataracte, glaucome, chirurgie réfractive." />
-    <meta property="og:url" content="https://lacerisaie-eyeclinic.com/" />
-    <meta property="og:image" content="https://lacerisaie-eyeclinic.com/images/clinic.jpg" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/images/clinic.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ophtalmologue à Douala | La Cerisaie Eye Clinic" />
     <meta name="twitter:description" content="Cabinet d'ophtalmologie à Bonapriso, Douala depuis 2003." />
-    <meta name="twitter:image" content="https://lacerisaie-eyeclinic.com/images/clinic.jpg" />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/images/clinic.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,8 +32,8 @@
         "@context": "https://schema.org",
         "@type": "MedicalClinic",
         "name": "La Cerisaie Eye Clinic",
-        "url": "https://lacerisaie-eyeclinic.com",
-        "image": "https://lacerisaie-eyeclinic.com/images/clinic.jpg",
+        "url": "%VITE_SITE_URL%",
+        "image": "%VITE_SITE_URL%/images/clinic.jpg",
         "description": "Cabinet d'ophtalmologie à Douala depuis 2003. Cataracte, glaucome, chirurgie réfractive, orthoptie.",
         "medicalSpecialty": "Ophthalmologic",
         "priceRange": "$$",

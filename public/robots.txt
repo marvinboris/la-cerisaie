@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin
-
-Sitemap: https://lacerisaie-eyeclinic.com/sitemap.xml

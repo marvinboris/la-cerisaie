@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { SITE_NAME, SITE_URL } from '../lib/seo'
+import { IS_INDEXABLE, SITE_NAME, SITE_URL } from '../lib/seo'
 
 interface SeoProps {
   title: string
@@ -45,7 +45,8 @@ export default function Seo({ title, description, noindex = false }: SeoProps) {
     document.documentElement.lang = i18n.language
 
     setMeta('meta[name="description"]', 'name', 'description', description)
-    setMeta('meta[name="robots"]', 'name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow')
+    const indexable = IS_INDEXABLE && !noindex
+    setMeta('meta[name="robots"]', 'name', 'robots', indexable ? 'index, follow' : 'noindex, nofollow')
     setMeta('meta[property="og:title"]', 'property', 'og:title', fullTitle)
     setMeta('meta[property="og:description"]', 'property', 'og:description', description)
     setMeta('meta[property="og:url"]', 'property', 'og:url', url)
