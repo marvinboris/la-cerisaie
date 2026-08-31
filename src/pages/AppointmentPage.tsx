@@ -2,22 +2,47 @@ import { useState } from 'react'
 import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { Calendar, Clock, User, Phone, MessageSquare, ChevronRight, CheckCircle, Mail } from 'lucide-react'
+import { slotsForDate, isClosed, availableDoctors } from '../lib/schedule'
+import { insurers } from '../data/insurers'
+import Seo from '../components/Seo'
+
+interface Doctor {
+  id: string
+  name: string
+  role: string
+  sub: string
+  badge: string | null
+  color: string
+  initials: string
+}
 
 const infoIcons = [Calendar, Clock, User, Phone, Mail, MessageSquare]
-const timeSlots = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00']
+const minDate = new Date(Date.now() + 2 * 86400000).toISOString().split('T')[0]
 
 export default function AppointmentPage() {
   const { t, tList } = useT()
   const [step, setStep] = useState(1)
+  const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
   const [selectedDoctor, setSelectedDoctor] = useState('')
   const [selectedType, setSelectedType] = useState('specialisee')
   const [submitted, setSubmitted] = useState(false)
 
-  const doctors: { name: string; role: string; sub: string; badge: string | null; color: string; initials: string }[] = tList('doctors')
+  const doctors: Doctor[] = tList('doctors')
+  const timeSlots = slotsForDate(selectedDate)
+  const openDoctors = availableDoctors(doctors, selectedDate)
+  const closed = selectedDate !== '' && isClosed(selectedDate)
+
+  // Changer de date peut invalider le créneau et le médecin déjà choisis (samedi = 9h–13h, sans Dr Manga).
   const infoItems: { title: string; desc: string }[] = tList('appointment.info.items')
   const consultationTypes: { value: string; label: string }[] = tList('appointment.step1.types')
   const motifs: string[] = tList('appointment.step1.motifs')
+
+  const handleDateChange = (date: string) => {
+    setSelectedDate(date)
+    if (!slotsForDate(date).includes(selectedTime)) setSelectedTime('')
+    if (!availableDoctors(doctors, date).some((d) => d.name === selectedDoctor)) setSelectedDoctor('')
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,7 +74,7 @@ export default function AppointmentPage() {
               ))}
             </div>
             <button
-              onClick={() => { setSubmitted(false); setStep(1); setSelectedTime(''); setSelectedDoctor('') }}
+              onClick={() => { setSubmitted(false); setStep(1); setSelectedDate(''); setSelectedTime(''); setSelectedDoctor('') }}
               className="btn-primary"
             >
               {t('appointment.success.again')}
@@ -62,6 +87,7 @@ export default function AppointmentPage() {
 
   return (
     <>
+      <Seo title={t('seo.appointment.title')} description={t('seo.appointment.desc')} />
       <PageHero
         tag={t('appointment.hero.tag')}
         title={t('appointment.hero.title')}
@@ -96,8 +122,8 @@ export default function AppointmentPage() {
               <div className="bg-teal-50 border border-teal-100 rounded-2xl p-5">
                 <p className="text-sm text-teal-800 font-medium mb-3">{t('appointment.info.insurances')}</p>
                 <div className="flex flex-wrap gap-2">
-                  {['AXA', 'Wallis', 'Saham', 'GMC'].map((ins) => (
-                    <span key={ins} className="text-xs bg-white text-teal-700 border border-teal-200 rounded-lg px-3 py-1.5 font-semibold">{ins}</span>
+                  {insurers.map((ins) => (
+                    <span key={ins.id} className="text-xs bg-white text-teal-700 border border-teal-200 rounded-lg px-3 py-1.5 font-semibold">{ins.name}</span>
                   ))}
                 </div>
               </div>
@@ -148,21 +174,28 @@ export default function AppointmentPage() {
                       <label className="block text-sm font-medium text-slate-700 mb-2">
                         {t('appointment.step1.dateLabel')} <span className="text-slate-400 font-normal">{t('appointment.step1.dateSub')}</span>
                       </label>
-                      <input type="date" min={new Date(Date.now() + 2 * 86400000).toISOString().split('T')[0]}
+                      <input type="date" min={minDate} value={selectedDate} onChange={(e) => handleDateChange(e.target.value)}
                         className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50" />
                     </div>
                     <div className="mb-8">
                       <label className="block text-sm font-medium text-slate-700 mb-3">{t('appointment.step1.timeLabel')}</label>
-                      <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                        {timeSlots.map((time) => (
-                          <button key={time} type="button" onClick={() => setSelectedTime(time)}
-                            className={`py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${selectedTime === time ? 'bg-teal-600 text-white shadow-md' : 'bg-slate-50 text-slate-700 border border-slate-200 hover:bg-teal-50 hover:text-teal-700'}`}>
-                            {time}
-                          </button>
-                        ))}
-                      </div>
+                      {closed ? (
+                        <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">{t('appointment.step1.closed')}</p>
+                      ) : (
+                        <>
+                          <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                            {timeSlots.map((time) => (
+                              <button key={time} type="button" onClick={() => setSelectedTime(time)}
+                                className={`py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${selectedTime === time ? 'bg-teal-600 text-white shadow-md' : 'bg-slate-50 text-slate-700 border border-slate-200 hover:bg-teal-50 hover:text-teal-700'}`}>
+                                {time}
+                              </button>
+                            ))}
+                          </div>
+                          <p className="text-xs text-slate-500 mt-3">{t('appointment.step1.hoursNote')}</p>
+                        </>
+                      )}
                     </div>
-                    <button onClick={() => setStep(2)} className="btn-primary w-full justify-center">
+                    <button onClick={() => setStep(2)} disabled={closed} className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed">
                       {t('common.continue')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -173,7 +206,7 @@ export default function AppointmentPage() {
                   <div>
                     <h3 className="font-display text-xl font-bold text-slate-900 mb-6">{t('appointment.step2.title')}</h3>
                     <div className="space-y-3 mb-8">
-                      {doctors.map((doc) => (
+                      {openDoctors.map((doc) => (
                         <button key={doc.name} type="button" onClick={() => setSelectedDoctor(doc.name)}
                           className={`w-full text-left p-5 rounded-2xl border-2 transition-all duration-200 ${selectedDoctor === doc.name ? 'border-teal-500 bg-teal-50' : 'border-slate-200 hover:border-teal-200 bg-white'}`}>
                           <div className="flex items-center gap-4">
@@ -220,7 +253,7 @@ export default function AppointmentPage() {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-1.5">{t('appointment.step3.message')}</label>
-                        <textarea rows={3} placeholder={t('appointment.step3.messagePlaceholder')} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50 resize-none" />
+                        <textarea rows={3} spellCheck autoCorrect="on" autoCapitalize="sentences" placeholder={t('appointment.step3.messagePlaceholder')} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50 resize-none" />
                       </div>
                     </div>
                     <div className="flex gap-3">

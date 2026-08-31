@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.firebase/
+public/robots.txt
+public/sitemap.xml

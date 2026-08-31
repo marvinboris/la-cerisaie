@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom'
 import { useT } from '../i18n/useT'
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
+import { phones } from '../data/contact'
+import { activeSocials } from '../data/socials'
 
 const clinicLinks = [
   { to: '/' }, { to: '/a-propos' }, { to: '/a-propos#team' }, { to: '/actualites' }, { to: '/contact' },
 ]
 const serviceLinks = [
-  { to: '/la-cataracte' }, { to: '/defauts-de-vision' }, { to: '/vivre-sans-lunettes' }, { to: '/' }, { to: '/' }, { to: '/' },
+  { to: '/la-cataracte' }, { to: '/defauts-de-vision' }, { to: '/vivre-sans-lunettes' },
+  { to: '/pathologies/glaucome' }, { to: '/pathologies/keratocone' }, { to: '/pathologies' },
 ]
 
 export default function Footer() {
   const { t, tList } = useT()
   const clinicLabels: string[] = tList('footer.links.clinic')
+  const socials = activeSocials()
   const serviceLabels: string[] = tList('footer.links.services')
 
   return (
@@ -42,21 +46,19 @@ export default function Footer() {
           <div>
             <Link to="/" className="inline-block mb-6">
               <img
-                src="https://lacerisaie-eyeclinic.com/wp-content/uploads/2020/11/Logo.png"
+                src="/images/logo.png"
                 alt="La Cerisaie Eye Clinic"
                 className="h-12 w-auto object-contain brightness-0 invert"
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">{t('footer.tagline')}</p>
             <div className="space-y-3">
-              <a href="tel:+237699955164" className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-teal-400 transition-colors">
-                <Phone className="w-4 h-4 text-teal-500 flex-shrink-0" />
-                (+237) 699 955 164
-              </a>
-              <a href="tel:+237675853201" className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-teal-400 transition-colors">
-                <Phone className="w-4 h-4 text-teal-500 flex-shrink-0" />
-                (+237) 675 853 201
-              </a>
+              {phones.map((phone) => (
+                <a key={phone.operator} href={phone.href} className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-teal-400 transition-colors">
+                  <Phone className="w-4 h-4 text-teal-500 flex-shrink-0" />
+                  <span className="font-semibold text-slate-300">{phone.operator}</span> {phone.display}
+                </a>
+              ))}
               <a href="mailto:cm.lacerisaie@yahoo.fr" className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-teal-400 transition-colors">
                 <Mail className="w-4 h-4 text-teal-500 flex-shrink-0" />
                 cm.lacerisaie@yahoo.fr
@@ -66,6 +68,22 @@ export default function Footer() {
                 <span>Bonapriso, Ave du Général de Gaulle, Douala</span>
               </div>
             </div>
+            {socials.length > 0 && (
+              <div className="flex items-center gap-3 mt-6">
+                {socials.map(({ label, url, Icon }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-teal-600 hover:border-teal-600 hover:text-white transition-colors"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Navigation */}
@@ -115,8 +133,8 @@ export default function Footer() {
             </div>
             <div className="bg-slate-800 rounded-2xl p-4 border border-slate-700">
               <p className="text-xs text-slate-400 mb-2">{t('footer.urgency')}</p>
-              <a href="tel:+237699955164" className="text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors">
-                (+237) 699 955 164
+              <a href={phones[0].href} className="text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors">
+                {phones[0].display}
               </a>
             </div>
           </div>

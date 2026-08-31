@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { Calendar, X, ArrowRight } from 'lucide-react'
+import Seo from '../components/Seo'
 
 type Article = {
   id: number; date: string; category: string; title: string; image: string
@@ -15,6 +16,7 @@ export default function NewsPage() {
 
   return (
     <>
+      <Seo title={t('seo.news.title')} description={t('seo.news.desc')} />
       <PageHero
         tag={t('news.hero.tag')}
         title={t('news.hero.title')}
@@ -30,7 +32,7 @@ export default function NewsPage() {
               <article key={article.id} className="group bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                 {article.image && (
                   <div className="relative h-48 overflow-hidden">
-                    <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img loading="lazy" src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className={`absolute inset-0 bg-gradient-to-t ${article.color} opacity-20`} />
                   </div>
                 )}

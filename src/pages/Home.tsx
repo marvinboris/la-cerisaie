@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useT } from '../i18n/useT'
+import { insurers } from '../data/insurers'
 import { ArrowRight, Eye, Activity, Scan, Microscope, Stethoscope, Glasses, Star, Users, Calendar, Award, CheckCircle } from 'lucide-react'
+import Seo from '../components/Seo'
 
 const serviceIcons = [Eye, Activity, Scan, Microscope, Stethoscope, Glasses]
 const serviceLinks = ['/la-cataracte', null, null, null, '/vivre-sans-lunettes', '/defauts-de-vision']
@@ -15,19 +17,12 @@ const serviceColors = [
 const statIcons = [Award, Users, Star, Calendar]
 
 const newsImages = [
-  '/images/news-welcome.png',
-  '/images/news-glasses.png',
+  '/images/news-welcome.jpg',
+  '/images/news-glasses.jpg',
 ]
 const newsColors = [
   { color: 'from-blue-400 to-blue-600', bg: 'bg-blue-50' },
   { color: 'from-teal-400 to-teal-600', bg: 'bg-teal-50' },
-]
-
-const insurers = [
-  { name: 'AXA', logo: '/images/insurer-axa.jpg' },
-  { name: 'Wallis', logo: '/images/insurer-wallis.png' },
-  { name: 'Saham', logo: '/images/insurer-saham.png' },
-  { name: 'GMC', logo: '/images/insurer-gmc.png' },
 ]
 
 export default function Home() {
@@ -41,6 +36,7 @@ export default function Home() {
 
   return (
     <>
+      <Seo title={t('seo.home.title')} description={t('seo.home.desc')} />
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900" />
@@ -188,7 +184,7 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden h-48">
-                  <img src="/images/clinic.jpg" alt="La Cerisaie Eye Clinic" className="w-full h-full object-cover" />
+                  <img loading="lazy" src="/images/clinic.jpg" alt="La Cerisaie Eye Clinic" className="w-full h-full object-cover" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {aboutStats.map((s) => (
@@ -226,7 +222,7 @@ export default function Home() {
             {doctors.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl overflow-hidden border border-slate-100 text-center card-hover">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
+                  <img loading="lazy" src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
                   {member.badge && (
                     <span className="absolute top-3 right-3 bg-teal-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
                       {member.badge}
@@ -251,12 +247,14 @@ export default function Home() {
               <h3 className="font-display text-2xl font-bold text-slate-900 mb-1">{t('home.insurance.title')}</h3>
               <p className="text-slate-500 text-sm">{t('home.insurance.sub')}</p>
             </div>
-            <div className="flex flex-wrap justify-center items-center gap-6 flex-1">
-              {insurers.map((ins) => (
-                <div key={ins.name} className="bg-white border border-slate-200 rounded-2xl px-6 py-3 shadow-sm hover:shadow-md hover:border-teal-200 transition-all duration-200 flex items-center justify-center h-16">
-                  <img src={ins.logo} alt={ins.name} className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
-                </div>
-              ))}
+            <div className="marquee flex-1 min-w-0">
+              <div className="marquee-track">
+                {[...insurers, ...insurers].map((ins, i) => (
+                  <div key={`${ins.id}-${i}`} aria-hidden={i >= insurers.length} className="bg-white border border-slate-200 rounded-2xl px-6 py-3 shadow-sm hover:shadow-md hover:border-teal-200 transition-all duration-200 flex items-center justify-center h-16 flex-shrink-0">
+                    <img loading="lazy" src={ins.logo} alt={ins.name} className="h-8 w-auto object-contain" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -311,7 +309,7 @@ export default function Home() {
             {newsArticles.slice(0, 2).map((article, i) => (
               <Link key={article.title} to="/actualites" className="group bg-white border border-slate-100 rounded-3xl overflow-hidden card-hover block">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={newsImages[i]} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" src={newsImages[i]} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className={`absolute inset-0 bg-gradient-to-t ${newsColors[i].color} opacity-30`} />
                   <span className={`absolute top-4 left-4 text-xs font-bold px-2.5 py-1 rounded-full ${newsColors[i].bg} text-slate-700`}>{article.category}</span>
                 </div>

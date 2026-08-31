@@ -4,11 +4,72 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="La Cerisaie Eye Clinic - Cabinet d'ophtalmologie à Douala, Cameroun. Soins oculaires de qualité depuis 2003." />
-    <title>La Cerisaie Eye Clinic | Ophtalmologie - Douala</title>
+    <meta name="description" content="Cabinet d'ophtalmologie à Bonapriso, Douala depuis 2003. Cataracte, glaucome, chirurgie réfractive. 3 ophtalmologistes et prise de rendez-vous en ligne." />
+    <!-- meta robots posée par <Seo>, qui suit IS_INDEXABLE (voir src/lib/seo.ts) -->
+    <title>Ophtalmologue à Douala | La Cerisaie Eye Clinic</title>
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <!-- Open Graph / Twitter — valeurs par défaut, surchargées par page via <Seo> -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="La Cerisaie Eye Clinic" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content="Ophtalmologue à Douala | La Cerisaie Eye Clinic" />
+    <meta property="og:description" content="Cabinet d'ophtalmologie à Bonapriso, Douala depuis 2003. Cataracte, glaucome, chirurgie réfractive." />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/images/clinic.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ophtalmologue à Douala | La Cerisaie Eye Clinic" />
+    <meta name="twitter:description" content="Cabinet d'ophtalmologie à Bonapriso, Douala depuis 2003." />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/images/clinic.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "La Cerisaie Eye Clinic",
+        "url": "%VITE_SITE_URL%",
+        "image": "%VITE_SITE_URL%/images/clinic.jpg",
+        "description": "Cabinet d'ophtalmologie à Douala depuis 2003. Cataracte, glaucome, chirurgie réfractive, orthoptie.",
+        "medicalSpecialty": "Ophthalmologic",
+        "priceRange": "$$",
+        "currenciesAccepted": "XAF",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bonapriso, Avenue du Général de Gaulle",
+          "addressLocality": "Douala",
+          "addressRegion": "Littoral",
+          "addressCountry": "CM"
+        },
+        "telephone": ["+237699955164", "+237675853201"],
+        "email": "cm.lacerisaie@yahoo.fr",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ],
+        "availableService": [
+          { "@type": "MedicalProcedure", "name": "Chirurgie de la cataracte" },
+          { "@type": "MedicalProcedure", "name": "Prise en charge du glaucome" },
+          { "@type": "MedicalProcedure", "name": "Chirurgie réfractive" },
+          { "@type": "MedicalProcedure", "name": "Cross-linking cornéen" },
+          { "@type": "MedicalProcedure", "name": "Bilan orthoptique" }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

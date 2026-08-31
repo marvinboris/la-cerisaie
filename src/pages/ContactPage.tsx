@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { Phone, Mail, MapPin, Clock, MessageSquare, ChevronRight, ArrowRight } from 'lucide-react'
+import Seo from '../components/Seo'
 
 const cardIcons = [Phone, Mail, MapPin, Clock]
 const cardColors = [
@@ -17,6 +18,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <Seo title={t('seo.contact.title')} description={t('seo.contact.desc')} />
       <PageHero
         tag={t('contact.hero.tag')}
         title={t('contact.hero.title')}
@@ -100,7 +102,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1.5">{t('contact.form.message')}</label>
-                  <textarea rows={4} placeholder="..." className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white resize-none" />
+                  <textarea rows={4} spellCheck autoCorrect="on" autoCapitalize="sentences" placeholder="..." className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white resize-none" />
                 </div>
                 <button type="submit" className="btn-primary w-full justify-center">
                   {t('contact.form.submit')}
