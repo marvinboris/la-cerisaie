@@ -3,6 +3,7 @@ import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { CheckCircle, AlertCircle, Clock, ArrowRight, Microscope, Scan, Eye, Activity } from 'lucide-react'
 import Seo from '../components/Seo'
+import JsonLd from '../components/JsonLd'
 
 const examIcons = [Microscope, Scan, Eye, Activity, Eye, Scan]
 const cataractVideos = [
@@ -21,6 +22,7 @@ export default function CataractPage() {
   return (
     <>
       <Seo title={t('seo.cataract.title')} description={t('seo.cataract.desc')} />
+      <JsonLd data={{ '@type': 'MedicalCondition', name: t('seo.cataract.title'), description: t('seo.cataract.desc') }} />
       <PageHero
         tag={t('cataract.hero.tag')}
         title={t('cataract.hero.title')}

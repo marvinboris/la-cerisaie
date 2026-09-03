@@ -3,6 +3,7 @@ import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { ArrowRight, CheckCircle, Zap, Users, Shield, AlertTriangle } from 'lucide-react'
 import Seo from '../components/Seo'
+import JsonLd from '../components/JsonLd'
 
 const ageIcons = [Zap, Users, Shield]
 const ageGradients = ['from-teal-500 to-teal-600', 'from-blue-500 to-blue-600', 'from-violet-500 to-violet-600']
@@ -23,6 +24,7 @@ export default function RefractiveSurgeryPage() {
   return (
     <>
       <Seo title={t('seo.refractiveSurgery.title')} description={t('seo.refractiveSurgery.desc')} />
+      <JsonLd data={{ '@type': 'MedicalProcedure', name: t('seo.refractiveSurgery.title'), description: t('seo.refractiveSurgery.desc') }} />
       <PageHero
         tag={t('refractiveSurgery.hero.tag')}
         title={t('refractiveSurgery.hero.title')}

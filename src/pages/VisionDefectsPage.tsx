@@ -3,6 +3,7 @@ import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
 import { ArrowRight } from 'lucide-react'
 import Seo from '../components/Seo'
+import JsonLd from '../components/JsonLd'
 
 export default function VisionDefectsPage() {
   const { t, tList } = useT()
@@ -12,6 +13,7 @@ export default function VisionDefectsPage() {
   return (
     <>
       <Seo title={t('seo.visionDefects.title')} description={t('seo.visionDefects.desc')} />
+      <JsonLd data={{ '@type': 'MedicalCondition', name: t('seo.visionDefects.title'), description: t('seo.visionDefects.desc') }} />
       <PageHero
         tag={t('visionDefects.hero.tag')}
         title={t('visionDefects.hero.title')}

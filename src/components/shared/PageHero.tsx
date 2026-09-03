@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
+import JsonLd from '../JsonLd'
+import { SITE_URL } from '../../lib/seo'
 
 interface Crumb {
   label: string
@@ -16,8 +18,14 @@ interface PageHeroProps {
 }
 
 export default function PageHero({ tag, title, titleAccent, description, breadcrumbs, cta }: PageHeroProps) {
+  const { pathname } = useLocation()
+  const breadcrumbLd = {
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.label, item: `${SITE_URL}${c.to ?? pathname}` })),
+  }
   return (
     <section className="relative bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900 pt-32 pb-20 overflow-hidden">
+      <JsonLd data={breadcrumbLd} />
       {/* Decorative grid */}
       <div
         className="absolute inset-0 opacity-10"

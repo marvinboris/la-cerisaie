@@ -4,6 +4,7 @@ import PageHero from '../components/shared/PageHero'
 import { findBySlug } from '../data/pathologies'
 import { AlertCircle, CheckCircle, Info, Stethoscope, ArrowRight } from 'lucide-react'
 import Seo from '../components/Seo'
+import JsonLd from '../components/JsonLd'
 
 export default function PathologyPage() {
   const { slug = '' } = useParams()
@@ -24,6 +25,22 @@ export default function PathologyPage() {
       <Seo
         title={`${t(`${key}.name`)} — ${t('seo.pathologySuffix')}`}
         description={t(`${key}.short`)}
+        image={pathology.image}
+      />
+      <JsonLd
+        data={[
+          {
+            '@type': 'MedicalCondition',
+            name: t(`${key}.name`),
+            description: t(`${key}.short`),
+            signOrSymptom: symptoms.map((name) => ({ '@type': 'MedicalSymptom', name })),
+            possibleTreatment: treatments.map((x) => ({ '@type': 'MedicalTherapy', name: x.title, description: x.desc })),
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+          },
+        ]}
       />
       <PageHero
         tag={t(`${key}.tag`)}

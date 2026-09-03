@@ -4,6 +4,8 @@ import PageHero from '../components/shared/PageHero'
 import { CheckCircle, Award, Users, Heart, Stethoscope, GraduationCap, ArrowRight } from 'lucide-react'
 import { insurers } from '../data/insurers'
 import Seo from '../components/Seo'
+import JsonLd from '../components/JsonLd'
+import { SITE_NAME, SITE_URL } from '../lib/seo'
 
 const valueIcons = [Award, Heart, Users]
 
@@ -16,7 +18,18 @@ export default function AboutPage() {
 
   return (
     <>
-      <Seo title={t('seo.about.title')} description={t('seo.about.desc')} />
+      <Seo title={t('seo.about.title')} description={t('seo.about.desc')} image="/images/team/manga-theodat.jpg" />
+      <JsonLd
+        data={doctors.map((d) => ({
+          '@type': 'Physician',
+          name: d.name,
+          image: `${SITE_URL}${d.photo}`,
+          description: d.description,
+          medicalSpecialty: 'Ophthalmology',
+          url: `${SITE_URL}/a-propos`,
+          worksFor: { '@type': 'MedicalClinic', name: SITE_NAME, url: SITE_URL },
+        }))}
+      />
       <PageHero
         tag={t('about.hero.tag')}
         title={t('about.hero.title')}
