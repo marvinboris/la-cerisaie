@@ -5,6 +5,10 @@ import { CheckCircle, AlertCircle, Clock, ArrowRight, Microscope, Scan, Eye, Act
 import Seo from '../components/Seo'
 
 const examIcons = [Microscope, Scan, Eye, Activity, Eye, Scan]
+const cataractVideos = [
+  { src: '/videos/cataract-types', label: 'cataract.videos.types' },
+  { src: '/videos/cataract-surgery', label: 'cataract.videos.surgery' },
+]
 
 export default function CataractPage() {
   const { t, tList } = useT()
@@ -86,6 +90,33 @@ export default function CataractPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Videos */}
+      <section className="py-20 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12">
+            <div className="section-tag justify-center text-teal-400">
+              <div className="w-8 h-px bg-teal-400" />
+              {t('cataract.videos.tag')}
+              <div className="w-8 h-px bg-teal-400" />
+            </div>
+            <h2 className="section-title text-white">
+              {t('cataract.videos.title')}
+              <span className="block text-gradient">{t('cataract.videos.accent')}</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {cataractVideos.map(({ src, label }) => (
+              <figure key={src}>
+                <video controls preload="none" playsInline poster={`${src}.jpg`} className="mx-auto max-h-[600px] rounded-3xl shadow-2xl bg-black">
+                  <source src={`${src}.mp4`} type="video/mp4" />
+                </video>
+                <figcaption className="mt-4 text-center text-slate-300 text-sm font-medium">{t(label)}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

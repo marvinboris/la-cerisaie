@@ -408,6 +408,108 @@ const pathologies: Record<string, PathologyContent> = {
       },
     ],
   },
+  pterygium: {
+    name: 'Pterygium',
+    short: 'A fleshy growth of the conjunctiva that creeps onto the cornea, driven by sun and dust: very common in our climate.',
+    tag: 'Condition',
+    title: 'Pterygium,',
+    accent: "the surfer's eye",
+    heroDesc:
+      'A pterygium is a triangular, fleshy growth of the conjunctiva that slowly advances towards the centre of the cornea. Benign but bothersome, it is very common in Cameroon because of exposure to sun, wind and dust.',
+    intro:
+      "Often called \"surfer's eye\", a pterygium usually grows from the nasal side of the white of the eye and then invades the cornea. It progresses in flare-ups, with episodes of redness and irritation. As long as it stays small, monitoring and eye drops are enough. Once it advances towards the visual axis or distorts the cornea, surgical removal becomes necessary. The modern technique, with a conjunctival autograft, greatly reduces the risk of recurrence.",
+    symptomsTitle: 'Warning signs',
+    symptoms: [
+      'A pinkish-white, fleshy wedge advancing onto the cornea from the inner corner of the eye',
+      'Redness and irritation, worse in sun, wind, dust and smoke',
+      'Foreign-body sensation, burning or dryness',
+      'Blurred or distorted vision as the lesion nears the centre of the eye (induced astigmatism)',
+      'Cosmetic concern and chronic redness',
+    ],
+    causesTitle: 'Risk factors',
+    causes: [
+      'Prolonged ultraviolet exposure — outdoor work or activities without sunglasses',
+      'Hot, dry, windy and dusty climate',
+      'Smoke, pollution and chronic irritation of the ocular surface',
+      'Untreated dry eye',
+      'Family history of pterygium',
+      'Age: onset most often between 20 and 50',
+    ],
+    diagnosisTitle: 'How we diagnose it',
+    diagnosis:
+      'The diagnosis is clinical: a slit-lamp examination is enough to recognise a pterygium, measure how far it has advanced onto the cornea and distinguish it from other conjunctival lesions. We then assess its impact on vision, in particular the astigmatism it causes, and photograph the lesion to track its progression from one visit to the next.',
+    exams: [
+      'Slit-lamp examination and measurement of corneal involvement',
+      'Visual acuity and refraction',
+      'Corneal topography when astigmatism is induced',
+      'Photographic documentation for follow-up',
+    ],
+    treatmentsTitle: 'Treatment',
+    treatments: [
+      { title: 'Protection and eye drops', desc: 'Wrap-around sunglasses, artificial tears and anti-inflammatory drops during flare-ups: enough for small pterygia that cause little discomfort.' },
+      { title: 'Surgical removal with autograft', desc: 'Under local anaesthesia, as a day case, we remove the pterygium and cover the area with a piece of healthy conjunctiva taken from the same eye. This autograft brings the recurrence rate down to under 5%.' },
+      { title: 'Post-operative follow-up', desc: 'Eye drops for a few weeks, with check-ups at one week and one month. Sun protection remains essential for life to prevent recurrence.' },
+    ],
+    faqTitle: 'Frequently asked questions',
+    faq: [
+      { q: 'Is a pterygium dangerous?', a: 'No, it is a benign lesion. But left untreated it can reach the centre of the cornea and cause lasting loss of vision, so it must be monitored.' },
+      { q: 'Does it always need surgery?', a: 'No. We operate when the pterygium is growing, affects vision, causes repeated inflammation or is a significant cosmetic concern. Small, stable lesions are simply monitored.' },
+      { q: 'Is the operation painful?', a: 'It is performed under local anaesthesia and takes about 30 minutes. Some discomfort and a gritty feeling are normal for a few days and are relieved by eye drops.' },
+      { q: 'Can it come back after surgery?', a: 'Recurrence is possible, especially in young people with heavy sun exposure. The conjunctival autograft technique greatly reduces the risk, and wearing sunglasses is essential.' },
+    ],
+  },
+  tearDuct: {
+    name: 'Blocked tear duct',
+    short: 'Constant watering, a runny eye or repeated infections: the channel that drains the tears is blocked.',
+    tag: 'Condition',
+    title: 'Blocked',
+    accent: 'tear duct',
+    heroDesc:
+      'Tears normally drain into the nose through a narrow channel. When that channel is blocked, tears overflow: the eye waters constantly and can become infected. Common in infants and adults alike, this obstruction is very treatable.',
+    intro:
+      'The lacrimal system produces tears and drains them through the puncta, at the edge of the eyelids, then down the nasolacrimal duct into the nose. A blockage anywhere along this path causes chronic watering (epiphora) and, over time, infection of the tear sac (dacryocystitis). In newborns, the blockage is usually a membrane that has not yet opened, and it clears on its own before the age of one in the vast majority of cases. In adults it results from progressive narrowing of the duct and often requires a surgical procedure.',
+    symptomsTitle: 'Warning signs',
+    symptoms: [
+      'An eye that waters constantly, even without emotion or wind',
+      'Sticky discharge, lashes glued together on waking',
+      'Painful redness and swelling at the inner corner of the eye, near the nose',
+      'Pus or fluid reflux when pressing on the inner corner of the eye',
+      'Recurrent conjunctivitis, especially in infants',
+      'Vision blurred by excess tears',
+    ],
+    causesTitle: 'Causes and risk factors',
+    causes: [
+      'In infants: a persistent membrane at the end of the nasolacrimal duct',
+      'In adults: progressive narrowing of the duct with age, more common in women over 50',
+      'Repeated infections of the eyelids, conjunctiva or sinuses',
+      'Injury to the nose or face',
+      'Previous nasal or sinus surgery',
+      'Rarely: a tumour or stone in the tear drainage system',
+    ],
+    diagnosisTitle: 'How we diagnose it',
+    diagnosis:
+      'We examine the eyelids, puncta and tear sac at the slit lamp. A dye test shows whether tears drain normally into the nose. In adults, probing and irrigation of the tear ducts pinpoints the level of the blockage. A CT scan is sometimes requested before surgery.',
+    exams: [
+      'Slit-lamp examination of the eyelids and puncta',
+      'Fluorescein dye test: measuring tear clearance time',
+      'Probing and irrigation of the tear ducts',
+      'Imaging (CT scan) for complex or recurrent obstruction',
+    ],
+    treatmentsTitle: 'Treatment',
+    treatments: [
+      { title: 'Tear sac massage (infants)', desc: 'Gentle, repeated pressure on the inner corner of the eye, taught to parents, lets the membrane open on its own in over 90% of cases before the age of one.' },
+      { title: 'Tear duct probing', desc: 'If the blockage persists beyond 12 months in a child, probing under brief anaesthesia clears the obstruction in a few minutes. In adults it may be combined with a temporary stent.' },
+      { title: 'Treating the infection', desc: 'In dacryocystitis, oral and topical antibiotics are started before any procedure on the tear ducts.' },
+      { title: 'Dacryocystorhinostomy', desc: 'In adults, this operation creates a new passage between the tear sac and the nose, permanently bypassing the blockage. It is performed under local or general anaesthesia.' },
+    ],
+    faqTitle: 'Frequently asked questions',
+    faq: [
+      { q: "My baby's eye has been watering since birth: is it serious?", a: 'No, it is very common and benign. Massaging the tear sac and cleaning the discharge is usually enough. See us if the eye becomes red, swollen or painful, or if watering persists after one year.' },
+      { q: 'Is a watery eye in an adult always a blockage?', a: 'No. Watering can also be caused by paradoxical dry eye, irritation or an eyelid malposition. The examination tells them apart.' },
+      { q: 'Does the surgery leave a scar?', a: 'Dacryocystorhinostomy can be done through a small skin incision, almost invisible once healed, or through the nose with no external scar at all.' },
+      { q: 'What is the success rate?', a: 'Probing in children succeeds in about 90% of cases. In adults, dacryocystorhinostomy stops the watering in over 90% of cases.' },
+    ],
+  },
 }
 
 export default pathologies

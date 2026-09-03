@@ -427,6 +427,108 @@ const pathologies: Record<string, PathologyContent> = {
       },
     ],
   },
+  pterygium: {
+    name: 'Le ptérygion',
+    short: "Voile conjonctival qui envahit la cornée, favorisé par le soleil et la poussière : très fréquent sous nos latitudes.",
+    tag: 'Pathologie',
+    title: 'Le',
+    accent: 'ptérygion',
+    heroDesc:
+      "Le ptérygion est une excroissance de la conjonctive, en forme de triangle, qui progresse lentement vers le centre de la cornée. Bénin mais gênant, il est très fréquent au Cameroun en raison de l'exposition au soleil, au vent et à la poussière.",
+    intro:
+      "Souvent appelé « chair dans l'œil » ou « œil du surfeur », le ptérygion se développe le plus souvent du côté du nez, sur la partie blanche de l'œil, puis gagne la cornée. Il évolue par poussées, avec des épisodes de rougeur et d'irritation. Tant qu'il reste petit, une surveillance et des collyres suffisent. Lorsqu'il progresse vers l'axe visuel ou déforme la cornée, l'ablation chirurgicale devient nécessaire. La technique moderne, avec autogreffe de conjonctive, réduit fortement le risque de récidive.",
+    symptomsTitle: 'Signes qui doivent alerter',
+    symptoms: [
+      "Voile blanc-rosé, charnu, qui avance sur la cornée depuis le coin interne de l'œil",
+      'Rougeur et irritation, aggravées par le soleil, le vent, la poussière et la fumée',
+      'Sensation de corps étranger, de brûlure ou de sécheresse',
+      "Vision floue ou déformée quand la lésion approche du centre de l'œil (astigmatisme induit)",
+      'Gêne esthétique et rougeur chronique',
+    ],
+    causesTitle: 'Facteurs de risque',
+    causes: [
+      'Exposition prolongée aux ultraviolets — travail ou activités en extérieur sans lunettes de soleil',
+      'Climat chaud, sec, venteux et poussiéreux',
+      'Fumée, pollution et irritation chronique de la surface oculaire',
+      'Sécheresse oculaire non traitée',
+      'Antécédents familiaux de ptérygion',
+      'Âge : apparition le plus souvent entre 20 et 50 ans',
+    ],
+    diagnosisTitle: 'Comment nous établissons le diagnostic',
+    diagnosis:
+      "Le diagnostic est clinique : l'examen à la lampe à fente suffit à reconnaître le ptérygion, à mesurer son avancée sur la cornée et à le distinguer d'autres lésions de la conjonctive. Nous évaluons ensuite son retentissement sur la vision, en particulier l'astigmatisme qu'il provoque, et nous photographions la lésion pour suivre son évolution d'une visite à l'autre.",
+    exams: [
+      "Examen à la lampe à fente et mesure de l'envahissement cornéen",
+      "Mesure de l'acuité visuelle et réfraction",
+      "Topographie cornéenne en cas d'astigmatisme induit",
+      'Photographie de la lésion pour le suivi',
+    ],
+    treatmentsTitle: 'Prise en charge',
+    treatments: [
+      { title: 'Protection et collyres', desc: "Lunettes de soleil enveloppantes, larmes artificielles et collyres anti-inflammatoires lors des poussées : suffisant pour les petits ptérygions peu gênants." },
+      { title: 'Ablation chirurgicale avec autogreffe', desc: "Sous anesthésie locale, en ambulatoire, nous retirons le ptérygion et recouvrons la zone d'un fragment de conjonctive saine prélevé sur le même œil. Cette autogreffe fait chuter le taux de récidive à moins de 5 %." },
+      { title: 'Suivi post-opératoire', desc: "Collyres pendant quelques semaines, contrôle à une semaine puis à un mois. La protection solaire reste indispensable à vie pour prévenir la récidive." },
+    ],
+    faqTitle: 'Questions fréquentes',
+    faq: [
+      { q: 'Le ptérygion est-il dangereux ?', a: "Non, c'est une lésion bénigne. Mais non traité, il peut atteindre le centre de la cornée et provoquer une baisse de vision durable. Il doit donc être surveillé." },
+      { q: 'Faut-il toujours opérer ?', a: "Non. On opère lorsque le ptérygion progresse, gêne la vision, provoque une inflammation répétée ou un préjudice esthétique important. Les petites lésions stables se surveillent." },
+      { q: "L'opération est-elle douloureuse ?", a: "Elle se déroule sous anesthésie locale et dure environ 30 minutes. Une gêne et une sensation de grain de sable sont habituelles pendant quelques jours, calmées par les collyres." },
+      { q: "Peut-il revenir après l'opération ?", a: "Le risque de récidive existe, surtout chez les sujets jeunes et très exposés au soleil. La technique avec autogreffe conjonctivale le réduit fortement, et le port de lunettes de soleil est essentiel." },
+    ],
+  },
+  tearDuct: {
+    name: 'Obstruction des voies lacrymales',
+    short: "Larmoiement permanent, œil qui coule ou infections à répétition : le canal qui évacue les larmes est bouché.",
+    tag: 'Pathologie',
+    title: 'Obstruction des',
+    accent: 'voies lacrymales',
+    heroDesc:
+      "Les larmes s'écoulent normalement vers le nez par un fin canal. Lorsque ce canal est bouché, les larmes débordent : l'œil coule en permanence et peut s'infecter. Fréquente chez le nourrisson comme chez l'adulte, cette obstruction se traite très bien.",
+    intro:
+      "Le système lacrymal produit les larmes et les évacue par les points lacrymaux, situés au bord des paupières, puis par le canal lacrymo-nasal vers le nez. Une obstruction sur ce trajet entraîne un larmoiement chronique (épiphora) et, à terme, une infection du sac lacrymal (dacryocystite). Chez le nouveau-né, l'obstruction est le plus souvent liée à une membrane qui n'a pas encore rompu et disparaît spontanément dans la grande majorité des cas avant un an. Chez l'adulte, elle résulte d'un rétrécissement progressif du canal et nécessite souvent un geste chirurgical.",
+    symptomsTitle: 'Signes qui doivent alerter',
+    symptoms: [
+      'Œil qui coule en permanence, même sans émotion ni vent',
+      'Sécrétions collantes, cils agglutinés au réveil',
+      "Rougeur et gonflement douloureux dans le coin interne de l'œil, près du nez",
+      "Reflux de pus ou de liquide lorsqu'on appuie sur le coin interne de l'œil",
+      'Conjonctivites à répétition, surtout chez le nourrisson',
+      "Vision brouillée par l'excès de larmes",
+    ],
+    causesTitle: 'Causes et facteurs de risque',
+    causes: [
+      "Chez le nourrisson : membrane persistante à l'extrémité du canal lacrymo-nasal",
+      "Chez l'adulte : rétrécissement progressif du canal avec l'âge, plus fréquent chez la femme après 50 ans",
+      'Infections répétées des paupières, de la conjonctive ou des sinus',
+      'Traumatisme du nez ou du visage',
+      'Chirurgie nasale ou sinusienne antérieure',
+      'Rarement : tumeur ou calcul dans les voies lacrymales',
+    ],
+    diagnosisTitle: 'Comment nous établissons le diagnostic',
+    diagnosis:
+      "Nous examinons les paupières, les points lacrymaux et le sac lacrymal à la lampe à fente. Un test au colorant permet de vérifier si les larmes s'évacuent normalement vers le nez. Chez l'adulte, un sondage-lavage des voies lacrymales localise précisément le niveau de l'obstruction. Un scanner est parfois demandé avant une chirurgie.",
+    exams: [
+      'Examen des paupières et des points lacrymaux à la lampe à fente',
+      "Test à la fluorescéine : mesure du temps d'évacuation des larmes",
+      'Sondage et lavage des voies lacrymales',
+      "Imagerie (scanner) en cas d'obstruction complexe ou de récidive",
+    ],
+    treatmentsTitle: 'Prise en charge',
+    treatments: [
+      { title: 'Massage du sac lacrymal (nourrisson)', desc: "Des pressions douces et répétées sur le coin interne de l'œil, enseignées aux parents, permettent la rupture spontanée de la membrane dans plus de 90 % des cas avant l'âge d'un an." },
+      { title: 'Sondage des voies lacrymales', desc: "Si l'obstruction persiste au-delà de 12 mois chez l'enfant, un sondage sous courte anesthésie lève l'obstacle en quelques minutes. Chez l'adulte, il peut être associé à la mise en place d'une sonde temporaire." },
+      { title: "Traitement de l'infection", desc: "En cas de dacryocystite, un traitement antibiotique par voie orale et locale est instauré avant tout geste sur les voies lacrymales." },
+      { title: 'Dacryocystorhinostomie', desc: "Chez l'adulte, cette chirurgie crée un nouveau passage entre le sac lacrymal et le nez, contournant définitivement l'obstruction. Elle est réalisée sous anesthésie locale ou générale." },
+    ],
+    faqTitle: 'Questions fréquentes',
+    faq: [
+      { q: "Mon bébé a l'œil qui coule depuis la naissance : est-ce grave ?", a: "Non, c'est très fréquent et bénin. Le massage du sac lacrymal et le nettoyage des sécrétions suffisent généralement. Consultez si l'œil devient rouge, gonflé ou douloureux, ou si le larmoiement persiste après un an." },
+      { q: "Un œil qui coule chez l'adulte, est-ce forcément une obstruction ?", a: "Non. Le larmoiement peut aussi être dû à une sécheresse oculaire paradoxale, une irritation ou une malposition de la paupière. L'examen permet de faire la différence." },
+      { q: 'La chirurgie laisse-t-elle une cicatrice ?', a: "La dacryocystorhinostomie peut être réalisée par une petite incision cutanée, presque invisible après cicatrisation, ou par voie endonasale sans aucune cicatrice externe." },
+      { q: 'Quel est le taux de succès ?', a: "Le sondage chez l'enfant réussit dans environ 90 % des cas. Chez l'adulte, la dacryocystorhinostomie supprime le larmoiement dans plus de 90 % des cas." },
+    ],
+  },
 }
 
 export default pathologies

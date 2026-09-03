@@ -158,7 +158,7 @@ export default function AboutPage() {
           </div>
 
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center mb-8">{t('about.team.staff')}</h3>
-          <div className="grid sm:grid-cols-3 gap-5 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
             {staff.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl p-6 border border-slate-100 flex items-center gap-4 hover:border-teal-200 transition-colors">
                 {member.photo ? (
@@ -181,7 +181,7 @@ export default function AboutPage() {
           <div className="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden">
             <div className="grid lg:grid-cols-2">
               <div className="relative h-64 lg:h-auto overflow-hidden">
-                <img loading="lazy" src="/images/admin.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
+                <img loading="lazy" src="/images/team/accueil.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-50/50 hidden lg:block" />
               </div>
               <div className="p-8 flex flex-col justify-center text-center lg:text-left">

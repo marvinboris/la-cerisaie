@@ -7,11 +7,10 @@ export interface SocialLink {
   Icon: LucideIcon
 }
 
-// ponytail: URLs à remplir par le client. Une entrée sans URL n'est pas rendue.
 export const socials: SocialLink[] = [
-  { label: 'Facebook', url: '', Icon: Facebook },
-  { label: 'LinkedIn', url: '', Icon: Linkedin },
-  { label: 'Instagram', url: '', Icon: Instagram },
+  { label: 'Facebook', url: 'https://www.facebook.com/Lacerisaieeyeclinic', Icon: Facebook },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/la-cerisaie-eye-clinic/', Icon: Linkedin },
+  { label: 'Instagram', url: 'https://www.instagram.com/lacerisaieeye_clinic/', Icon: Instagram },
 ]
 
 export const activeSocials = (): SocialLink[] => socials.filter((s) => s.url !== '')

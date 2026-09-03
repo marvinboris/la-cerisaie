@@ -118,6 +118,7 @@ const en = {
     },
   },
   cataract: {
+    videos: { tag: 'Explained in video', title: 'Cataract', accent: 'explained in pictures', types: 'The 5 types of cataract', surgery: 'Cataract surgery, step by step' },
     hero: {
       tag: 'Eye condition',
       title: 'Cataract:',
@@ -532,6 +533,7 @@ const en = {
     ctaTitle: 'Need medical advice?',
     ctaDesc: 'Book an appointment at the clinic for a full assessment.',
     backToList: 'All conditions',
+    videoTitle: 'Explained in video',
   },
   notFound: {
     tag: 'Error 404',
@@ -554,14 +556,19 @@ const en = {
     pathologySuffix: 'Ophthalmology in Douala',
   },
   doctors: [
-    { id: 'manga', name: 'Dr. Théodat Manga', role: 'Ophthalmologist', sub: 'Cataract, glaucoma & anterior segment', badge: 'Head of clinic', description: "Head of La Cerisaie Eye Clinic, Dr. Théodat Manga is a recognized ophthalmologist in Cameroon. His practice focuses on cataract surgery and glaucoma management.", speciality: 'Cataract surgery, glaucoma & anterior segment', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: '/images/dr-manga.jpg' },
-    { id: 'mouen', name: 'Dr. Georges Mouen', role: 'Ophthalmologist', sub: 'Retina, posterior segment & emergencies', badge: null, description: "Posterior segment specialist, Dr. Georges Mouen manages retinal conditions, glaucoma and ophthalmological emergencies.", speciality: 'Retina, posterior segment & ocular emergencies', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: '/images/dr-mouen.jpg' },
-    { id: 'mbia', name: 'Dr. Mbia Zobo', role: 'Ophthalmologist', sub: 'Refractive surgery, cornea & keratoconus', badge: null, description: "Specializing in refractive surgery and corneal conditions, Dr. Mbia Zobo manages keratoconus and pre-operative assessments for vision correction.", speciality: 'Refractive surgery, cornea & keratoconus', initials: 'MZ', color: 'from-violet-400 to-violet-600', photo: '/images/dr-mbia.jpg' },
+    { id: 'manga', name: 'Dr. Théodat Manga', role: 'Ophthalmologist', sub: 'Cataract, glaucoma & anterior segment', badge: 'Head of clinic', description: "Head of La Cerisaie Eye Clinic, Dr. Théodat Manga is a recognized ophthalmologist in Cameroon. His practice focuses on cataract surgery and glaucoma management.", speciality: 'Cataract surgery, glaucoma & anterior segment', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: '/images/team/manga-theodat.jpg' },
+    { id: 'mouen', name: 'Dr. Georges Dany Mouen Mbangue', role: 'Ophthalmologist', sub: 'Retina, posterior segment & emergencies', badge: null, description: "Posterior segment specialist, Dr. Georges Dany Mouen Mbangue manages retinal conditions, glaucoma and ophthalmological emergencies.", speciality: 'Retina, posterior segment & ocular emergencies', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: '/images/team/mouen-mbangue-georges.jpg' },
+    { id: 'mbia', name: 'Dr. Danièle Audrey Zobo Mbia', role: 'Ophthalmologist', sub: 'Refractive surgery, cornea & keratoconus', badge: null, description: "Specialising in refractive surgery and corneal conditions, Dr. Danièle Audrey Zobo Mbia manages keratoconus and pre-operative assessments for vision correction.", speciality: 'Refractive surgery, cornea & keratoconus', initials: 'DZ', color: 'from-violet-400 to-violet-600', photo: '/images/team/zobo-mbia-daniele.jpg' },
   ],
   staff: [
-    { name: 'Mr. Marcel Epesse', role: 'Orthoptist', speciality: 'Visual rehabilitation, orthoptic assessment & amblyopia', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: '/images/mr-epesse.jpg' },
-    { name: 'Dr. Maxime Manga', role: 'General practitioner', speciality: 'Global care & patient follow-up', initials: 'MM', color: 'from-orange-400 to-orange-600', photo: null },
-    { name: 'Mme Angele Nyamsi', role: 'Specialized nurse (ISO)', speciality: 'Specialized ophthalmological nursing care', initials: 'AN', color: 'from-pink-400 to-pink-600', photo: null },
+    { name: 'Dr. Marcel Epesse', role: 'Orthoptist', speciality: 'Visual rehabilitation, orthoptic assessment & amblyopia', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: '/images/team/epesse-marcel.jpg' },
+    { name: 'Dr. Rostan Fetseu', role: 'General practitioner', speciality: 'Global care & patient follow-up', initials: 'RF', color: 'from-orange-400 to-orange-600', photo: '/images/team/fetseu-rostan.jpg' },
+    { name: 'Ms Stephanie Alih Fru', role: 'Senior ophthalmic technician', speciality: 'Diagnostic tests & consultation support', initials: 'SA', color: 'from-violet-400 to-violet-600', photo: '/images/team/alih-fru-stephanie.jpg' },
+    { name: 'Mrs Albertine Diboa', role: 'Medical assistant', speciality: 'Patient reception & consultation preparation', initials: 'AD', color: 'from-pink-400 to-pink-600', photo: '/images/team/diboa-albertine.jpg' },
+    { name: 'Mrs Viviane Mbaka', role: 'Medical assistant', speciality: 'Patient reception & consultation preparation', initials: 'VM', color: 'from-sky-400 to-sky-600', photo: '/images/team/mbaka-viviane.jpg' },
+    { name: 'Mrs Berthe Mony Selle', role: 'Medical assistant', speciality: 'Patient reception & consultation preparation', initials: 'BM', color: 'from-rose-400 to-rose-600', photo: '/images/team/mony-selle-berthe.jpg' },
+    { name: 'Mrs Vanessa Fotso', role: 'Office Manager', speciality: 'Clinic organisation, appointments & administration', initials: 'VF', color: 'from-teal-400 to-teal-600', photo: '/images/team/fotso-vanessa.jpg' },
+    { name: 'Mrs Danièle Ekalle', role: 'Strategy, Development & Operations Manager', speciality: 'Clinic strategy, development & operations', initials: 'DE', color: 'from-blue-400 to-blue-600', photo: '/images/team/ekalle-daniele.jpg' },
   ],
 }
 

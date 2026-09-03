@@ -40,10 +40,27 @@ export default function PathologyPage() {
 
       {/* Intro */}
       <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <p className="text-lg text-slate-600 leading-relaxed">{t(`${key}.intro`)}</p>
+          {pathology.image && (
+            <div className="rounded-3xl overflow-hidden h-72 lg:h-96 shadow-lg">
+              <img loading="lazy" src={pathology.image} alt={t(`${key}.name`)} className="w-full h-full object-cover" />
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Vidéo */}
+      {pathology.video && (
+        <section className="py-20 bg-slate-900">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-display text-2xl font-bold text-white mb-8 text-center">{t('pathologyPage.videoTitle')}</h2>
+            <video controls preload="none" playsInline poster={`${pathology.video}.jpg`} className="mx-auto max-h-[600px] rounded-3xl shadow-2xl bg-black">
+              <source src={`${pathology.video}.mp4`} type="video/mp4" />
+            </video>
+          </div>
+        </section>
+      )}
 
       {/* Symptômes & facteurs de risque */}
       <section className="py-16 bg-slate-50">

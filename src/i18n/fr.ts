@@ -118,6 +118,7 @@ const fr = {
     },
   },
   cataract: {
+    videos: { tag: 'Comprendre en vidéo', title: 'La cataracte', accent: 'expliquée en images', types: 'Les 5 types de cataracte', surgery: "L'opération de la cataracte, étape par étape" },
     hero: {
       tag: 'Pathologie oculaire',
       title: 'La cataracte :',
@@ -532,6 +533,7 @@ const fr = {
     ctaTitle: 'Besoin d\'un avis médical ?',
     ctaDesc: 'Prenez rendez-vous au cabinet pour un bilan complet.',
     backToList: 'Toutes les pathologies',
+    videoTitle: 'Comprendre en vidéo',
   },
   notFound: {
     tag: 'Erreur 404',
@@ -554,14 +556,19 @@ const fr = {
     pathologySuffix: 'Ophtalmologie à Douala',
   },
   doctors: [
-    { id: 'manga', name: 'Dr. Théodat Manga', role: 'Ophtalmologiste', sub: 'Cataracte, glaucome & segment antérieur', badge: 'Chef de cabinet', description: "Chef de cabinet de La Cerisaie Eye Clinic, le Dr. Théodat Manga est un ophtalmologiste reconnu au Cameroun. Sa pratique se concentre sur la chirurgie de la cataracte et la prise en charge du glaucome.", speciality: 'Chirurgie de la cataracte, glaucome & segment antérieur', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: '/images/dr-manga.jpg' },
-    { id: 'mouen', name: 'Dr. Georges Mouen', role: 'Ophtalmologiste', sub: 'Rétine, segment postérieur & urgences', badge: null, description: "Spécialiste du segment postérieur, le Dr. Georges Mouen assure la prise en charge des pathologies rétiniennes, du glaucome et des urgences ophtalmologiques.", speciality: 'Rétine, segment postérieur & urgences oculaires', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: '/images/dr-mouen.jpg' },
-    { id: 'mbia', name: 'Dr. Mbia Zobo', role: 'Ophtalmologiste', sub: 'Chirurgie réfractive, cornée & kératocône', badge: null, description: "Spécialisé dans la chirurgie réfractive et les pathologies cornéennes, le Dr. Mbia Zobo prend en charge le kératocône et les bilans pré-opératoires pour la correction de la vue.", speciality: 'Chirurgie réfractive, cornée & kératocône', initials: 'MZ', color: 'from-violet-400 to-violet-600', photo: '/images/dr-mbia.jpg' },
+    { id: 'manga', name: 'Dr. Théodat Manga', role: 'Ophtalmologiste', sub: 'Cataracte, glaucome & segment antérieur', badge: 'Chef de cabinet', description: "Chef de cabinet de La Cerisaie Eye Clinic, le Dr. Théodat Manga est un ophtalmologiste reconnu au Cameroun. Sa pratique se concentre sur la chirurgie de la cataracte et la prise en charge du glaucome.", speciality: 'Chirurgie de la cataracte, glaucome & segment antérieur', initials: 'TM', color: 'from-teal-400 to-teal-600', photo: '/images/team/manga-theodat.jpg' },
+    { id: 'mouen', name: 'Dr. Georges Dany Mouen Mbangue', role: 'Ophtalmologiste', sub: 'Rétine, segment postérieur & urgences', badge: null, description: "Spécialiste du segment postérieur, le Dr. Georges Dany Mouen Mbangue assure la prise en charge des pathologies rétiniennes, du glaucome et des urgences ophtalmologiques.", speciality: 'Rétine, segment postérieur & urgences oculaires', initials: 'GM', color: 'from-blue-400 to-blue-600', photo: '/images/team/mouen-mbangue-georges.jpg' },
+    { id: 'mbia', name: 'Dr. Danièle Audrey Zobo Mbia', role: 'Ophtalmologiste', sub: 'Chirurgie réfractive, cornée & kératocône', badge: null, description: "Spécialisée dans la chirurgie réfractive et les pathologies cornéennes, la Dr. Danièle Audrey Zobo Mbia prend en charge le kératocône et les bilans pré-opératoires pour la correction de la vue.", speciality: 'Chirurgie réfractive, cornée & kératocône', initials: 'DZ', color: 'from-violet-400 to-violet-600', photo: '/images/team/zobo-mbia-daniele.jpg' },
   ],
   staff: [
-    { name: 'Mr. Marcel Epesse', role: 'Orthoptiste', speciality: 'Rééducation visuelle, bilan orthoptique & amblyopie', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: '/images/mr-epesse.jpg' },
-    { name: 'Dr. Maxime Manga', role: 'Médecin généraliste', speciality: 'Prise en charge globale & suivi des patients', initials: 'MM', color: 'from-orange-400 to-orange-600', photo: null },
-    { name: 'Mme Angele Nyamsi', role: 'Infirmière spécialisée (ISO)', speciality: 'Soins infirmiers spécialisés en ophtalmologie', initials: 'AN', color: 'from-pink-400 to-pink-600', photo: null },
+    { name: 'Dr. Marcel Epesse', role: 'Orthoptiste', speciality: 'Rééducation visuelle, bilan orthoptique & amblyopie', initials: 'ME', color: 'from-emerald-400 to-emerald-600', photo: '/images/team/epesse-marcel.jpg' },
+    { name: 'Dr. Rostan Fetseu', role: 'Médecin généraliste', speciality: 'Prise en charge globale & suivi des patients', initials: 'RF', color: 'from-orange-400 to-orange-600', photo: '/images/team/fetseu-rostan.jpg' },
+    { name: 'Mme Stephanie Alih Fru', role: 'Technicienne supérieure en ophtalmologie', speciality: 'Examens complémentaires & assistance aux consultations', initials: 'SA', color: 'from-violet-400 to-violet-600', photo: '/images/team/alih-fru-stephanie.jpg' },
+    { name: 'Mme Albertine Diboa', role: 'Assistante médicale', speciality: 'Accueil des patients & préparation des consultations', initials: 'AD', color: 'from-pink-400 to-pink-600', photo: '/images/team/diboa-albertine.jpg' },
+    { name: 'Mme Viviane Mbaka', role: 'Assistante médicale', speciality: 'Accueil des patients & préparation des consultations', initials: 'VM', color: 'from-sky-400 to-sky-600', photo: '/images/team/mbaka-viviane.jpg' },
+    { name: 'Mme Berthe Mony Selle', role: 'Assistante médicale', speciality: 'Accueil des patients & préparation des consultations', initials: 'BM', color: 'from-rose-400 to-rose-600', photo: '/images/team/mony-selle-berthe.jpg' },
+    { name: 'Mme Vanessa Fotso', role: 'Office Manager', speciality: 'Organisation du cabinet, rendez-vous & administration', initials: 'VF', color: 'from-teal-400 to-teal-600', photo: '/images/team/fotso-vanessa.jpg' },
+    { name: 'Mme Danièle Ekalle', role: 'Strategy, Development & Operations Manager', speciality: 'Stratégie, développement & opérations du cabinet', initials: 'DE', color: 'from-blue-400 to-blue-600', photo: '/images/team/ekalle-daniele.jpg' },
   ],
 }
 
