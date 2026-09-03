@@ -6,7 +6,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/shell.html"
+      "destination": "/shell"
     }
   ],
   "headers": [
