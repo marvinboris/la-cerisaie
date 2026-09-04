@@ -140,7 +140,7 @@ export default function Navbar() {
                       transparent ? 'text-white/80 hover:text-white' : 'text-slate-600 hover:text-teal-600'
                     }`}
                   >
-                    <span className="font-semibold">{phone.operator}</span> {phone.display}
+                    {phone.display}
                   </a>
                 ))}
               </div>
@@ -197,7 +197,7 @@ export default function Navbar() {
                 {phones.map((phone) => (
                   <a key={phone.operator} href={phone.href} className="flex items-center gap-2 text-sm text-slate-600 font-medium">
                     <Phone className="w-4 h-4 text-teal-600" />
-                    <span className="font-semibold">{phone.operator}</span> {phone.display}
+                    {phone.display}
                   </a>
                 ))}
               </div>
