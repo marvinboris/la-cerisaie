@@ -184,7 +184,7 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden h-48">
-                  <img loading="lazy" src="/images/clinic.jpg" alt="La Cerisaie Eye Clinic" className="w-full h-full object-cover" />
+                  <img loading="lazy" src="/images/gallery/facade.jpg" alt="La Cerisaie Eye Clinic" className="w-full h-full object-cover" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {aboutStats.map((s) => (

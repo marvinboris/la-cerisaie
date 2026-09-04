@@ -1,8 +1,14 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../i18n/useT'
 import PageHero from '../components/shared/PageHero'
-import { CheckCircle, Award, Users, Heart, Stethoscope, GraduationCap, ArrowRight } from 'lucide-react'
+import { CheckCircle, Award, Users, Heart, ArrowRight } from 'lucide-react'
 import { insurers } from '../data/insurers'
+import { gallery } from '../data/gallery'
+import PersonCard from '../components/shared/PersonCard'
+import type { Person } from '../components/shared/PersonCard'
+import Lightbox from '../components/shared/Lightbox'
+import PhotoCarousel from '../components/shared/PhotoCarousel'
 import Seo from '../components/Seo'
 import JsonLd from '../components/JsonLd'
 import { SITE_NAME, SITE_URL } from '../lib/seo'
@@ -12,8 +18,15 @@ const valueIcons = [Award, Heart, Users]
 export default function AboutPage() {
   const { t, tList } = useT()
   const values: { title: string; desc: string }[] = tList('about.values.items')
-  const doctors: { name: string; role: string; speciality: string; description: string; badge: string | null; color: string; photo: string; initials: string }[] = tList('doctors')
-  const staff: { name: string; role: string; speciality: string; color: string; photo: string | null; initials: string }[] = tList('staff')
+  const doctors: (Person & { description: string })[] = tList('doctors')
+  const staff: (Person & { group: string })[] = tList('staff')
+  const [selected, setSelected] = useState<Person | null>(null)
+  const groups = [
+    { key: 'doctors', people: [...doctors, ...staff.filter((p) => p.group === 'doctors')] },
+    { key: 'medical', people: staff.filter((p) => p.group === 'medical') },
+    { key: 'frontOffice', people: staff.filter((p) => p.group === 'frontOffice') },
+    { key: 'admin', people: staff.filter((p) => p.group === 'admin') },
+  ]
   const historyPoints: string[] = tList('about.history.points')
 
   return (
@@ -133,76 +146,38 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center mb-8">{t('about.team.ophtalmologists')}</h3>
-          <div className="grid lg:grid-cols-3 gap-6 mb-14">
-            {doctors.map((member) => (
-              <div key={member.name} className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative h-64 overflow-hidden">
-                  <img loading="lazy" src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  {member.badge && (
-                    <span className="absolute top-3 right-3 bg-teal-500 text-white text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
-                      {member.badge}
-                    </span>
-                  )}
-                </div>
-                <div className={`h-1 bg-gradient-to-r ${member.color}`} />
-                <div className="p-8 text-center">
-                  <h3 className="font-display text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
-                  <div className="flex items-center justify-center gap-1.5 mb-4">
-                    <Stethoscope className="w-3.5 h-3.5 text-teal-500" />
-                    <span className="text-teal-600 font-medium text-sm">{member.role}</span>
-                  </div>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{member.description}</p>
-                  <div className="bg-slate-50 rounded-xl px-4 py-2 text-xs text-slate-600 font-medium">{member.speciality}</div>
-                  <div className="mt-5 pt-5 border-t border-slate-100 flex justify-center gap-4">
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                      <GraduationCap className="w-3.5 h-3.5" />
-                      {t('about.team.specialist')}
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                      <Award className="w-3.5 h-3.5" />
-                      {t('about.team.expert')}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center mb-8">{t('about.team.staff')}</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
-            {staff.map((member) => (
-              <div key={member.name} className="bg-white rounded-3xl p-6 border border-slate-100 flex items-center gap-4 hover:border-teal-200 transition-colors">
-                {member.photo ? (
-                  <img loading="lazy" src={member.photo} alt={member.name} className="w-14 h-14 rounded-xl object-cover object-top flex-shrink-0 shadow-md" />
-                ) : (
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white font-bold font-display shadow-md flex-shrink-0 text-sm`}>
-                    {member.initials}
-                  </div>
-                )}
-                <div>
-                  <div className="font-semibold text-slate-900 text-sm">{member.name}</div>
-                  <div className="text-teal-600 text-xs font-medium">{member.role}</div>
-                  <div className="text-slate-500 text-xs mt-1 leading-snug">{member.speciality}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Admin staff */}
-          <div className="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden">
-            <div className="grid lg:grid-cols-2">
-              <div className="relative h-64 lg:h-auto overflow-hidden">
-                <img loading="lazy" src="/images/team/accueil.jpg" alt={t('about.team.adminTitle')} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-50/50 hidden lg:block" />
-              </div>
-              <div className="p-8 flex flex-col justify-center text-center lg:text-left">
-                <h4 className="font-display text-xl font-bold text-slate-900 mb-2">{t('about.team.adminTitle')}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{t('about.team.adminDesc')}</p>
+          {groups.map((group) => (
+            <div key={group.key} className="mb-14 last:mb-0">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center mb-8">{t(`about.team.${group.key}`)}</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {group.people.map((person) => (
+                  <PersonCard key={person.name} person={person} enlargeLabel={t('about.team.enlarge')} onOpen={() => setSelected(person)} />
+                ))}
               </div>
             </div>
+          ))}
+          <Lightbox person={selected} closeLabel={t('about.team.close')} onClose={() => setSelected(null)} />
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12">
+            <div className="section-tag justify-center">
+              <div className="w-8 h-px bg-teal-500" />
+              {t('about.gallery.tag')}
+              <div className="w-8 h-px bg-teal-500" />
+            </div>
+            <h2 className="section-title">{t('about.gallery.title')}
+              <span className="block text-gradient">{t('about.gallery.accent')}</span>
+            </h2>
           </div>
+          <PhotoCarousel
+            slides={gallery.map((g) => ({ src: g.src, caption: t(`about.gallery.slides.${g.id}`) }))}
+            prevLabel={t('about.gallery.prev')}
+            nextLabel={t('about.gallery.next')}
+          />
         </div>
       </section>
 

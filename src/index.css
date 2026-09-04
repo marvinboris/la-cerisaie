@@ -100,3 +100,12 @@ html {
   background: #2B4C7E;
   border-radius: 9999px;
 }
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
