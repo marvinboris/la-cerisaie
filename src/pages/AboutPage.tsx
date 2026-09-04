@@ -88,7 +88,7 @@ export default function AboutPage() {
                     { n: '20+', l: t('about.history.tag') },
                     { n: '11', l: t('home.stats.1.label') },
                     { n: '3', l: t('home.stats.2.label') },
-                    { n: '4', l: t('home.about.statsItems.3.l') },
+                    { n: '10', l: t('home.about.statsItems.3.l') },
                   ].map((s) => (
                     <div key={s.n} className="bg-white/10 rounded-2xl p-5 text-center border border-white/10">
                       <div className="text-3xl font-bold text-white">{s.n}</div>

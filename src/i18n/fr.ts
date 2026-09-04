@@ -85,11 +85,11 @@ const fr = {
       tag: 'À propos',
       title: 'Un cabinet de référence depuis 2003',
       desc: "La Cerisaie Eye Clinic est un cabinet médical groupé d'ophtalmologistes reconnus, concentrant ses activités sur les consultations, les examens complémentaires et la chirurgie oculaire à Douala, Cameroun.",
-      points: ['3 ophtalmologistes spécialisés', 'Équipements diagnostiques de dernière génération', 'Assurances partenaires : AXA, Willis Towers Watson, Saham, GMC'],
+      points: ['3 ophtalmologistes spécialisés', 'Équipements diagnostiques de dernière génération', 'Assurances & partenaires : AXA, Sanlam, Chanas, Area, Olea, PAD, SONARA…'],
       cta: 'Découvrir le cabinet',
       statsItems: [
         { n: '20+', l: "Années d'expérience" }, { n: '11', l: 'Professionnels' },
-        { n: '3', l: 'Ophtalmo.' }, { n: '4', l: 'Assurances' },
+        { n: '3', l: 'Ophtalmo.' }, { n: '10', l: 'Assurances & partenaires' },
         { n: '48h', l: 'Prise en charge' }, { n: '24/7', l: 'RDV en ligne' },
       ],
     },
@@ -99,8 +99,8 @@ const fr = {
       title2: 'votre service',
     },
     insurance: {
-      title: 'Assurances partenaires',
-      sub: 'Nous acceptons les principales mutuelles et assurances',
+      title: 'Assurances & partenaires',
+      sub: 'Nous travaillons avec les principales assurances et entreprises partenaires',
     },
     cta: {
       tag: 'Rendez-vous',
@@ -396,8 +396,8 @@ const fr = {
       },
     },
     insurance: {
-      title: 'Assurances acceptées',
-      sub: 'Nous prenons en charge les principales mutuelles',
+      title: 'Assurances & partenaires',
+      sub: 'Nous travaillons avec les principales assurances et entreprises partenaires',
     },
     cta: {
       title: 'Venez nous rencontrer',
@@ -421,7 +421,7 @@ const fr = {
         { title: 'Email', desc: 'cm.lacerisaie@yahoo.fr' },
         { title: 'Rappel SMS', desc: 'Vous recevrez un SMS de rappel la veille de votre rendez-vous' },
       ],
-      insurances: 'Assurances acceptées',
+      insurances: 'Assurances & partenaires',
     },
     steps: { label1: 'Type & créneau', label2: 'Praticien', label3: 'Vos informations' },
     step1: {
@@ -495,7 +495,7 @@ const fr = {
       {
         id: 4, date: '23 décembre 2021', category: 'Événement',
         title: 'Bonne année 2022 !',
-        image: '/images/admin.jpg',
+        image: '/images/gallery/admin.jpg',
         excerpt: "Toute l'équipe de La Cerisaie Eye Clinic vous souhaite une excellente nouvelle année, pleine de santé et de belles découvertes.",
         content: `Toute l'équipe de La Cerisaie Eye Clinic vous souhaite une excellente nouvelle année 2022, riche en bonheur, en santé et en belles découvertes !\n\nNous tenons à remercier chaleureusement tous nos patients qui nous ont fait confiance tout au long de l'année 2021. Votre fidélité et votre confiance sont notre plus belle récompense.\n\nL'année 2021 a été marquée par des défis sanitaires sans précédent, mais nous avons continué à vous accueillir et à prendre soin de votre santé visuelle dans le respect des mesures de protection.\n\nEn 2022, nous continuons à nous améliorer pour vous offrir encore de meilleurs soins.\n\n**De la part de toute l'équipe :** Dr. Théodat Manga, Dr. Georges Mouen, Dr. Mbia Zobo, Mr. Marcel Epesse, Dr. Maxime Manga, et tout le personnel administratif et soignant — merci et bonne année !`,
         color: 'from-orange-400 to-orange-600', bg: 'bg-orange-50', tagColor: 'text-orange-700',

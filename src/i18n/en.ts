@@ -85,11 +85,11 @@ const en = {
       tag: 'About',
       title: 'A reference clinic since 2003',
       desc: 'La Cerisaie Eye Clinic is a group medical practice of recognized ophthalmologists, focusing on consultations, additional examinations and ocular surgery in Douala, Cameroon.',
-      points: ['3 specialized ophthalmologists', 'Latest generation diagnostic equipment', 'Partner insurers: AXA, Willis Towers Watson, Saham, GMC'],
+      points: ['3 specialized ophthalmologists', 'Latest generation diagnostic equipment', 'Insurers & partners: AXA, Sanlam, Chanas, Area, Olea, PAD, SONARA…'],
       cta: 'Discover the clinic',
       statsItems: [
         { n: '20+', l: 'Years of experience' }, { n: '11', l: 'Professionals' },
-        { n: '3', l: 'Ophthalmo.' }, { n: '4', l: 'Insurers' },
+        { n: '3', l: 'Ophthalmo.' }, { n: '10', l: 'Insurers & partners' },
         { n: '48h', l: 'Care turnaround' }, { n: '24/7', l: 'Online booking' },
       ],
     },
@@ -99,8 +99,8 @@ const en = {
       title2: 'your service',
     },
     insurance: {
-      title: 'Partner insurers',
-      sub: 'We accept all major health insurance plans',
+      title: 'Insurers & partners',
+      sub: 'We work with the leading insurers and partner companies',
     },
     cta: {
       tag: 'Appointment',
@@ -396,8 +396,8 @@ const en = {
       },
     },
     insurance: {
-      title: 'Accepted insurers',
-      sub: 'We cover all major health insurance plans',
+      title: 'Insurers & partners',
+      sub: 'We work with the leading insurers and partner companies',
     },
     cta: {
       title: 'Come and meet us',
@@ -421,7 +421,7 @@ const en = {
         { title: 'Email', desc: 'cm.lacerisaie@yahoo.fr' },
         { title: 'SMS reminder', desc: 'You will receive an SMS reminder the day before your appointment' },
       ],
-      insurances: 'Accepted insurers',
+      insurances: 'Insurers & partners',
     },
     steps: { label1: 'Type & slot', label2: 'Practitioner', label3: 'Your details' },
     step1: {
@@ -495,7 +495,7 @@ const en = {
       {
         id: 4, date: 'December 23, 2021', category: 'Event',
         title: 'Happy New Year 2022!',
-        image: '/images/admin.jpg',
+        image: '/images/gallery/admin.jpg',
         excerpt: "The entire La Cerisaie Eye Clinic team wishes you an excellent new year, full of health and beautiful discoveries.",
         content: `The entire La Cerisaie Eye Clinic team wishes you an excellent new year 2022, full of happiness, health and beautiful discoveries!\n\nWe warmly thank all our patients who have trusted us throughout 2021. Your loyalty and trust are our greatest reward.\n\n2021 was marked by unprecedented health challenges, but we continued to welcome you and take care of your visual health while respecting all protection measures.\n\nIn 2022, we continue to improve to offer you even better care. New expertise, new equipment and always the same dedicated team at your service.\n\n**From the entire team:** Dr. Théodat Manga, Dr. Georges Mouen, Dr. Mbia Zobo, Mr. Marcel Epesse, Dr. Maxime Manga, and all the administrative and nursing staff — thank you and happy new year!`,
         color: 'from-orange-400 to-orange-600', bg: 'bg-orange-50', tagColor: 'text-orange-700',
