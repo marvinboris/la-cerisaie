@@ -12,7 +12,8 @@ import { Client } from 'basic-ftp'
 
 const BACKUP_DIR = '_wordpress-backup-2026-09-17'
 /** Contenu d'une racine WordPress : tout ce qui est déplacé dans BACKUP_DIR. */
-const WORDPRESS_ENTRIES = /^(wp-.*|index\.php|\.htaccess|xmlrpc\.php|license\.txt|readme\.html|\.user\.ini|php\.ini|\.well-known|cgi-bin|error_log|\.maintenance)$/
+const WORDPRESS_ENTRIES = /^(wp-.*|index\.php|\.htaccess|xmlrpc\.php|license\.txt|readme\.html|\.user\.ini|php\.ini|cgi-bin|error_log|\.maintenance|default_index\.html|phpinfolws\.php|Archive .*\.zip)$/
+// Laissés en place : fichier de vérification Google (google*.html), .quarantaine et *.sqlite gérés par LWS.
 const REQUIRED_REMOTE = ['index.html', 'shell.html', '.htaccess', 'sitemap.xml', 'robots.txt']
 
 if (!existsSync('.env.deploy')) fail('.env.deploy introuvable. Créer le fichier avec FTP_HOST, FTP_USER, FTP_PASSWORD, FTP_DIR.')
@@ -92,12 +93,13 @@ async function upload(names: string[]) {
     await client.cd(DIR)
   }
   console.log(`Envoi de dist/ vers ${HOST}:${DIR} …`)
-  let count = 0
+  const sent = new Set<string>()
   client.trackProgress((info) => {
-    if (info.type === 'upload' && info.bytesOverall === 0) count++
+    if (info.type === 'upload') sent.add(info.name)
   })
   await client.uploadFromDir('dist', DIR)
   client.trackProgress()
+  const count = sent.size
 
   await client.cd(DIR)
   const remote = (await client.list()).map((e) => e.name)
