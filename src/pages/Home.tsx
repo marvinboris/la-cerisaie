@@ -221,10 +221,10 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {doctors.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl overflow-hidden border border-slate-100 text-center card-hover">
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   <img loading="lazy" src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
                   {member.badge && (
-                    <span className="absolute top-3 right-3 bg-teal-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
+                    <span className="absolute top-3 right-3 bg-teal-500 text-white text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
                       {member.badge}
                     </span>
                   )}
@@ -250,8 +250,8 @@ export default function Home() {
             <div className="marquee flex-1 min-w-0">
               <div className="marquee-track">
                 {[...insurers, ...insurers].map((ins, i) => (
-                  <div key={`${ins.id}-${i}`} aria-hidden={i >= insurers.length} className="bg-white border border-slate-200 rounded-2xl px-6 py-3 shadow-sm hover:shadow-md hover:border-teal-200 transition-all duration-200 flex items-center justify-center h-16 flex-shrink-0">
-                    <img loading="lazy" src={ins.logo} alt={ins.name} className="h-8 w-auto object-contain" />
+                  <div key={`${ins.id}-${i}`} aria-hidden={i >= insurers.length} className="bg-white border border-slate-200 rounded-2xl w-44 h-20 px-5 shadow-sm hover:shadow-md hover:border-teal-200 transition-all duration-200 flex items-center justify-center flex-shrink-0">
+                    <img loading="lazy" src={ins.logo} alt={ins.name} className="max-h-10 max-w-full object-contain" />
                   </div>
                 ))}
               </div>

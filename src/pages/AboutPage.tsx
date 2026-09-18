@@ -191,8 +191,8 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-wrap justify-center items-center gap-6">
               {insurers.map((ins) => (
-                <div key={ins.id} className="bg-white border border-slate-200 rounded-2xl px-6 py-3 shadow-sm hover:border-teal-300 transition-colors flex items-center justify-center h-16">
-                  <img loading="lazy" src={ins.logo} alt={ins.name} className="h-8 w-auto object-contain" />
+                <div key={ins.id} className="bg-white border border-slate-200 rounded-2xl w-44 h-20 px-5 shadow-sm hover:border-teal-300 transition-colors flex items-center justify-center">
+                  <img loading="lazy" src={ins.logo} alt={ins.name} className="max-h-10 max-w-full object-contain" />
                 </div>
               ))}
             </div>
