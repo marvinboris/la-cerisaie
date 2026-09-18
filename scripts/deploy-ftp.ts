@@ -44,7 +44,7 @@ try {
       fail(`Le répertoire distant contient encore WordPress (wp-config.php). Relancer avec --replace-wordpress pour l'archiver dans ${BACKUP_DIR}/.`)
     }
     if (hasWordpress) await archiveWordpress(names)
-    await upload(names)
+    await upload()
   }
 } finally {
   client.close()
@@ -86,12 +86,9 @@ async function rollback() {
   console.log('WordPress restauré. Les fichiers du site statique restent en place (index.html, assets/…) mais index.php reprend la main.')
 }
 
-async function upload(names: string[]) {
-  // Assets hachés : on repart de zéro pour ne pas accumuler les anciens builds
-  if (names.includes('assets')) {
-    await client.removeDir('assets')
-    await client.cd(DIR)
-  }
+async function upload() {
+  // Les anciens assets hachés restent en place : le cache edge de LWS peut servir un HTML
+  // précédent pendant quelques minutes, qui doit encore trouver ses fichiers.
   console.log(`Envoi de dist/ vers ${HOST}:${DIR} …`)
   const sent = new Set<string>()
   client.trackProgress((info) => {
